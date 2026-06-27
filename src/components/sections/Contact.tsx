@@ -138,9 +138,8 @@ export default function Contact() {
                 Send Me an Email
               </a>
               <a
-                href={personal.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={personal.resumeDownloadUrl}
+                download="Shanmugam_R_Resume.pdf"
                 className="flex items-center justify-center gap-2 w-full px-6 py-3.5 text-sm font-semibold rounded-xl border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white active:scale-[0.98] transition-all duration-200"
               >
                 <Download size={15} />

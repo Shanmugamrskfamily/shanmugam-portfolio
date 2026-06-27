@@ -18,7 +18,9 @@ export const personal = {
   email: 'shanmugamrskfamily@gmail.com',
   phone: '+91 78453 71892',
   availability: 'Immediate joiner — open to full-time roles in Chennai',
-  resumeUrl: 'https://drive.google.com/file/d/1K09FU4p9UVQaEW4fURtaBfd694qjIS8t/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/1R6wkHN1wehKgNUSpezkotniqMmveGZru/view?usp=sharing',
+  resumeDownloadUrl:
+    'https://drive.google.com/uc?export=download&id=1R6wkHN1wehKgNUSpezkotniqMmveGZru',
 };
 
 export const social = {

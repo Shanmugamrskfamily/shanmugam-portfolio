@@ -108,9 +108,8 @@ export default function Hero() {
             {/* CTAs */}
             <motion.div {...fadeUp(0.5)} className="flex flex-wrap gap-3 mb-8">
               <a
-                href={personal.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={personal.resumeDownloadUrl}
+                download="Shanmugam_R_Resume.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] hover:shadow-lg active:scale-[0.98] transition-all duration-200"
               >
                 <Download size={15} />

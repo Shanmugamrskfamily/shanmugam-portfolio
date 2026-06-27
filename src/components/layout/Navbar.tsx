@@ -79,9 +79,8 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <a
-              href={personal.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={personal.resumeDownloadUrl}
+              download="Shanmugam_R_Resume.pdf"
               className={cn(
                 'inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200',
                 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] hover:shadow-md active:scale-[0.98]'
@@ -125,9 +124,8 @@ export default function Navbar() {
             ))}
             <div className="px-4 pt-2">
               <a
-                href={personal.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={personal.resumeDownloadUrl}
+                download="Shanmugam_R_Resume.pdf"
                 className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold rounded-lg bg-[var(--color-primary)] text-white"
                 onClick={() => setIsOpen(false)}
               >
