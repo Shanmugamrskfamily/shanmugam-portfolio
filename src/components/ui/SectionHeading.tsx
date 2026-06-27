@@ -24,10 +24,10 @@ export default function SectionHeading({
             align === 'center' && 'justify-center w-full'
           )}
         >
-          <span className="font-mono text-xs text-[var(--color-accent)] opacity-70 select-none">
-            {'//'}
+          <span className="font-display text-xs text-[var(--color-accent)] opacity-80 select-none">
+            {'✦'}
           </span>
-          <span className="font-mono text-xs tracking-[0.15em] uppercase text-[var(--color-primary)]">
+          <span className="font-display text-[10px] tracking-[0.2em] uppercase text-[var(--color-primary)]">
             {eyebrow}
           </span>
         </div>

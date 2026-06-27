@@ -31,9 +31,9 @@ export default function Skills() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="group tron-card p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/50 relative overflow-hidden"
+              className="group sw-card p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/50 relative overflow-hidden"
             >
-              {/* Tron top accent line — glows on hover */}
+              {/* Lightsaber top accent — glows on hover */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--color-primary)]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Card header */}
@@ -55,7 +55,7 @@ export default function Skills() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="tron-badge px-2 py-0.5 font-mono text-[11px] rounded transition-all duration-200"
+                    className="sw-badge px-2 py-0.5 font-mono text-[11px] rounded transition-all duration-200"
                   >
                     {skill}
                   </span>

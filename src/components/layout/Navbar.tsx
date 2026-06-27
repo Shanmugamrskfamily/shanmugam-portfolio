@@ -53,9 +53,9 @@ export default function Navbar() {
             className="font-mono font-bold text-sm tracking-tight hover:text-[var(--color-primary)] transition-colors text-[var(--color-text)]"
             aria-label="Scroll to top"
           >
-            <span className="text-[var(--color-accent)] opacity-60">&lt;</span>
+            <span className="font-display text-[var(--color-accent)] opacity-70 mr-0.5">✦</span>
             <span className="text-[var(--color-primary)]">Shanmugam</span>
-            <span className="text-[var(--color-accent)] opacity-60"> /&gt;</span>
+            <span className="font-display text-[var(--color-accent)] opacity-70 ml-0.5">✦</span>
           </button>
 
           {/* Desktop nav */}

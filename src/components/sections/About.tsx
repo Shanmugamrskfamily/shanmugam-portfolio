@@ -43,7 +43,7 @@ export default function About() {
 
             <div className="mt-8 p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
               <p className="font-mono text-xs text-[var(--color-text-subtle)] mb-3 uppercase tracking-widest">
-                <span className="text-[var(--color-accent)] opacity-60">{'// '}</span>
+                <span className="text-[var(--color-accent)] opacity-70">{'✦ '}</span>
                 currently_learning
               </p>
               <div className="flex flex-wrap gap-2">

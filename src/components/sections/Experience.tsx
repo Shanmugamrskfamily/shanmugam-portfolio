@@ -45,7 +45,7 @@ export default function Experience() {
                 {/* Timeline dot */}
                 <div className="absolute left-4 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-[var(--color-primary)] bg-[var(--color-bg)] hidden sm:block z-10" />
 
-                <div className="tron-card rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/50 transition-all duration-300">
+                <div className="sw-card rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/50 transition-all duration-300">
                   {/* Header */}
                   <div className="p-5 sm:p-6 border-b border-[var(--color-border)]">
                     <div className="flex flex-wrap items-start justify-between gap-3">
@@ -114,7 +114,7 @@ export default function Experience() {
                         {exp.tech.map((t) => (
                           <span
                             key={t}
-                            className="tron-badge px-2 py-0.5 font-mono text-[11px] rounded"
+                            className="sw-badge px-2 py-0.5 font-mono text-[11px] rounded"
                           >
                             {t}
                           </span>

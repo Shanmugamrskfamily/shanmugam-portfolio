@@ -18,14 +18,30 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       aria-label="Introduction"
     >
-      {/* Background grid — Tron cyan on dark, subtle blue on light */}
+      {/* Light mode: Tatooine sand dot texture */}
       <div
-        className="absolute inset-0 bg-grid-light dark:bg-grid-dark opacity-60 dark:opacity-100"
-        style={{ backgroundSize: '44px 44px' }}
+        className="absolute inset-0 block dark:hidden bg-sand-light opacity-70"
+        style={{ backgroundSize: '28px 28px' }}
         aria-hidden
       />
 
-      {/* Radial fade over grid */}
+      {/* Dark mode: three-layer star field */}
+      <div
+        className="absolute inset-0 hidden dark:block"
+        style={{
+          backgroundImage: [
+            'radial-gradient(circle, rgba(255,255,255,0.9) 1.5px, transparent 1.5px)',
+            'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            'radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)',
+          ].join(', '),
+          backgroundSize: '300px 300px, 150px 150px, 75px 75px',
+          backgroundPosition: '0 0, 48px 62px, 22px 30px',
+          opacity: 0.32,
+        }}
+        aria-hidden
+      />
+
+      {/* Radial fade over background */}
       <div
         className="absolute inset-0"
         style={{
@@ -35,15 +51,15 @@ export default function Hero() {
         aria-hidden
       />
 
-      {/* Tron glow blobs */}
+      {/* Nebula glow blobs */}
       <div
         className="absolute top-1/3 -left-48 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(91,200,245,0.07) 0%, transparent 70%)' }}
         aria-hidden
       />
       <div
         className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(155,89,255,0.05) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(245,197,25,0.06) 0%, transparent 70%)' }}
         aria-hidden
       />
 
@@ -64,8 +80,8 @@ export default function Hero() {
 
             {/* Name */}
             <motion.div {...fadeUp(0.1)}>
-              <p className="font-mono text-xs text-[var(--color-text-subtle)] mb-2 tracking-wider">
-                <span className="text-[var(--color-accent)] opacity-70">&gt;</span> Hello, I&apos;m
+              <p className="font-display text-[10px] text-[var(--color-text-subtle)] mb-2 tracking-[0.25em] uppercase">
+                <span className="text-[var(--color-accent)] opacity-80">{'✦'}</span> Hello, I&apos;m
               </p>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text)] leading-[1.05] tracking-tight mb-4">
                 Shanmugam <span className="text-gradient dark:text-gradient">R</span>
@@ -123,7 +139,7 @@ export default function Hero() {
                 href={personal.resumeDownloadUrl}
                 download="Shanmugam_R_Resume.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm bg-[var(--color-primary)] text-white hover:opacity-90 hover:shadow-lg active:scale-[0.98] transition-all duration-200"
-                style={{ boxShadow: '0 0 20px rgba(8,145,178,0.3)' }}
+                style={{ boxShadow: '0 0 20px rgba(91,200,245,0.28)' }}
               >
                 <Download size={15} />
                 Download Resume
@@ -188,11 +204,11 @@ export default function Hero() {
               <div className="absolute -inset-4 rounded-full border border-dashed border-[var(--color-primary)]/20 animate-spin-slow" />
               <div className="absolute -inset-8 rounded-full border border-[var(--color-primary)]/08" />
 
-              {/* Tron glow behind photo */}
+              {/* Force glow behind photo */}
               <div
                 className="absolute inset-0 rounded-full blur-2xl"
                 style={{
-                  background: 'radial-gradient(circle, rgba(0,229,255,0.14) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(91,200,245,0.16) 0%, transparent 70%)',
                 }}
               />
 
@@ -223,7 +239,7 @@ export default function Hero() {
           transition={{ delay: 1.2, duration: 0.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 text-[var(--color-text-subtle)]"
         >
-          <span className="font-mono text-[10px] tracking-widest uppercase">scroll</span>
+          <span className="font-display text-[9px] tracking-widest uppercase">scroll</span>
           <ChevronDown size={14} className="animate-bounce" />
         </motion.div>
       </div>
