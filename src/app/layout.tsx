@@ -15,25 +15,46 @@ const baseUrl = 'https://shanmugam-portfolio.vercel.app';
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Shanmugam R | Frontend Developer — React.js & Next.js',
+    default: 'Shanmugam R | Frontend Developer — React.js & Next.js | Chennai',
     template: '%s | Shanmugam R',
   },
   description:
-    'Frontend Developer with 2+ years building secure, scalable production web apps using React.js and Next.js. Project owner for Government of Telangana DEET portal. Based in Chennai, India.',
+    'Shanmugam R — Frontend Developer with 2+ years of production experience in React.js, Next.js & TypeScript. Built government-scale job portals for the Government of Telangana (DEET) and SaaS products (Workruit). Immediate joiner. Based in Chennai, India.',
   keywords: [
+    // Name variations
     'Shanmugam R',
-    'Frontend Developer',
-    'React.js Developer',
-    'Next.js Developer',
-    'Web Developer Chennai',
-    'JavaScript Developer India',
-    'TypeScript Developer',
-    'DEET Telangana',
-    'Portfolio',
+    'Shanmugam R portfolio',
+    'Shanmugam frontend developer',
+    'Shanmugam React developer Chennai',
+    // Role keywords
+    'Frontend Developer Chennai',
+    'React.js Developer Chennai',
+    'Next.js Developer India',
+    'JavaScript Developer Chennai',
+    'TypeScript Developer India',
+    'Web Developer Chennai Tamil Nadu',
+    // Skills
+    'React.js developer',
+    'Next.js developer',
+    'TypeScript developer',
+    'Tailwind CSS developer',
+    // Projects
+    'DEET Telangana developer',
+    'Government of Telangana job portal developer',
+    'Workruit developer',
+    // Hiring signals
+    'hire frontend developer Chennai',
+    'available frontend developer India',
+    'junior frontend developer Chennai',
+    'mid level React developer Chennai',
+    // General
+    'portfolio website developer',
+    'MERN stack developer Chennai',
   ],
   authors: [{ name: 'Shanmugam R', url: baseUrl }],
   creator: 'Shanmugam R',
   publisher: 'Shanmugam R',
+  category: 'technology',
   robots: {
     index: true,
     follow: true,
@@ -46,27 +67,30 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: 'website',
+    type: 'profile',
     locale: 'en_IN',
     url: baseUrl,
-    siteName: 'Shanmugam R — Portfolio',
-    title: 'Shanmugam R | Frontend Developer — React.js & Next.js',
+    siteName: 'Shanmugam R — Frontend Developer Portfolio',
+    title: 'Shanmugam R | Frontend Developer — React.js & Next.js | Chennai',
     description:
-      'Frontend Developer with 2+ years building secure, scalable production web apps. Project owner for Government of Telangana DEET portal.',
+      'Frontend Developer with 2+ years shipping production apps — Government of Telangana DEET job portal & Workruit SaaS. React.js, Next.js, TypeScript. Based in Chennai. Immediate joiner.',
     images: [
       {
-        url: '/images/profile.png',
+        url: `${baseUrl}/images/profile.png`,
         width: 1200,
         height: 630,
-        alt: 'Shanmugam R — Frontend Developer',
+        alt: 'Shanmugam R — Frontend Developer specialising in React.js and Next.js, Chennai India',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shanmugam R | Frontend Developer',
-    description: 'Frontend Developer specialising in React.js & Next.js — Chennai, India',
-    images: ['/images/profile.png'],
+    title: 'Shanmugam R | Frontend Developer — React.js & Next.js',
+    description:
+      'Frontend Developer with 2+ years in React.js & Next.js. Built govt-scale DEET portal & Workruit SaaS. Chennai, India. Immediate joiner.',
+    images: [`${baseUrl}/images/profile.png`],
+    creator: '@shanmugamrskfamily',
   },
   alternates: {
     canonical: baseUrl,
@@ -74,6 +98,11 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
+  verification: {
+    // Add Google Search Console verification token here after verifying:
+    // google: 'your-google-verification-token',
   },
 };
 
