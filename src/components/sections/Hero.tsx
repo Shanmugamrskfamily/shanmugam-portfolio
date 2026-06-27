@@ -18,20 +18,32 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       aria-label="Introduction"
     >
-      {/* Background dot grid */}
+      {/* Background grid */}
       <div
-        className="absolute inset-0 bg-dot-grid dark:bg-dot-grid-dark opacity-40 dark:opacity-20"
-        style={{ backgroundSize: '32px 32px' }}
+        className="absolute inset-0 bg-grid-light dark:bg-grid-dark opacity-30 dark:opacity-100"
+        style={{ backgroundSize: '40px 40px' }}
         aria-hidden
       />
 
-      {/* Gradient blobs */}
+      {/* Radial fade over grid */}
       <div
-        className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-navy-800/10 dark:bg-navy-600/10 blur-3xl"
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 60% at 50% 0%, transparent 40%, var(--color-bg) 100%)',
+        }}
+        aria-hidden
+      />
+
+      {/* Accent glow blobs */}
+      <div
+        className="absolute top-1/3 -left-48 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%)' }}
         aria-hidden
       />
       <div
-        className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-navy-600/10 dark:bg-navy-500/10 blur-3xl"
+        className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)' }}
         aria-hidden
       />
 
@@ -41,7 +53,7 @@ export default function Hero() {
           <div>
             {/* Availability badge */}
             <motion.div {...fadeUp(0)} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-800/40 dark:bg-emerald-900/20 dark:text-emerald-400">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono border border-emerald-500/30 bg-emerald-500/5 text-emerald-500 dark:text-emerald-400">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -52,11 +64,11 @@ export default function Hero() {
 
             {/* Name */}
             <motion.div {...fadeUp(0.1)}>
-              <p className="text-sm font-medium text-[var(--color-text-muted)] mb-2 tracking-wide">
-                Hi, I&apos;m
+              <p className="font-mono text-xs text-[var(--color-text-subtle)] mb-2 tracking-wider">
+                <span className="text-[var(--color-accent)] opacity-70">&gt;</span> Hello, I&apos;m
               </p>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--color-text)] leading-[1.05] tracking-tight mb-4">
-                Shanmugam <span className="text-gradient-primary dark:text-gradient">R</span>
+                Shanmugam <span className="text-gradient dark:text-gradient">R</span>
               </h1>
             </motion.div>
 
@@ -66,7 +78,7 @@ export default function Hero() {
                 <span className="text-xl sm:text-2xl font-semibold text-[var(--color-text-muted)]">
                   Frontend Developer
                 </span>
-                <span className="text-[var(--color-border)]">·</span>
+                <span className="font-mono text-[var(--color-text-subtle)] opacity-50">/</span>
                 <span className="text-xl sm:text-2xl font-semibold text-[var(--color-primary)]">
                   React & Next.js
                 </span>
@@ -84,21 +96,21 @@ export default function Hero() {
             {/* Location */}
             <motion.p
               {...fadeUp(0.35)}
-              className="flex items-center gap-1.5 text-sm text-[var(--color-text-subtle)] mb-8"
+              className="flex items-center gap-1.5 font-mono text-xs text-[var(--color-text-subtle)] mb-8"
             >
-              <MapPin size={14} />
+              <MapPin size={13} />
               {personal.location}
             </motion.p>
 
             {/* Stats */}
-            <motion.div {...fadeUp(0.4)} className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+            <motion.div {...fadeUp(0.4)} className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
               {about.stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="text-center p-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]"
+                  className="text-center p-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/40 transition-colors group"
                 >
-                  <p className="text-2xl font-bold text-[var(--color-primary)]">{stat.value}</p>
-                  <p className="text-xs text-[var(--color-text-muted)] mt-0.5 leading-tight">
+                  <p className="text-2xl font-bold text-gradient">{stat.value}</p>
+                  <p className="font-mono text-[10px] text-[var(--color-text-subtle)] mt-1 leading-tight uppercase tracking-wider">
                     {stat.label}
                   </p>
                 </div>
@@ -110,7 +122,8 @@ export default function Hero() {
               <a
                 href={personal.resumeDownloadUrl}
                 download="Shanmugam_R_Resume.pdf"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] hover:shadow-lg active:scale-[0.98] transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm bg-[var(--color-primary)] text-white hover:opacity-90 hover:shadow-lg active:scale-[0.98] transition-all duration-200"
+                style={{ boxShadow: '0 0 20px rgba(8,145,178,0.3)' }}
               >
                 <Download size={15} />
                 Download Resume
@@ -119,14 +132,14 @@ export default function Hero() {
                 onClick={() =>
                   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white active:scale-[0.98] transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white active:scale-[0.98] transition-all duration-200"
               >
                 View Projects
                 <ArrowRight size={15} />
               </button>
               <a
                 href={social.email}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm bg-[var(--color-surface)] text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-border)] active:scale-[0.98] transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm bg-[var(--color-surface)] text-[var(--color-text)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/40 active:scale-[0.98] transition-all duration-200"
               >
                 <Mail size={15} />
                 Contact Me
@@ -140,7 +153,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all duration-200"
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]/50 transition-all duration-200"
               >
                 <Github size={18} />
               </a>
@@ -149,14 +162,14 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all duration-200"
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]/50 transition-all duration-200"
               >
                 <Linkedin size={18} />
               </a>
               <a
                 href={social.email}
                 aria-label="Email"
-                className="w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all duration-200"
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]/50 transition-all duration-200"
               >
                 <Mail size={18} />
               </a>
@@ -172,11 +185,19 @@ export default function Hero() {
           >
             <div className="relative">
               {/* Decorative rings */}
-              <div className="absolute -inset-4 rounded-full border-2 border-dashed border-[var(--color-primary)]/20 animate-spin-slow" />
-              <div className="absolute -inset-8 rounded-full border border-[var(--color-primary)]/10" />
+              <div className="absolute -inset-4 rounded-full border border-dashed border-[var(--color-primary)]/20 animate-spin-slow" />
+              <div className="absolute -inset-8 rounded-full border border-[var(--color-primary)]/08" />
+
+              {/* Glow behind photo */}
+              <div
+                className="absolute inset-0 rounded-full blur-2xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%)',
+                }}
+              />
 
               {/* Photo */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[var(--color-primary)] shadow-glow-navy dark:shadow-glow-blue">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-[var(--color-primary)]/60 shadow-glow-cyan">
                 <Image
                   src="/images/profile.png"
                   alt="Shanmugam R — Frontend Developer"
@@ -188,7 +209,7 @@ export default function Hero() {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-2 rounded-full bg-[var(--color-bg)] border border-[var(--color-border)] shadow-lg text-xs font-semibold text-[var(--color-text)]">
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-4 py-2 rounded-full bg-[var(--color-bg)] border border-[var(--color-border)] shadow-lg font-mono text-xs font-semibold text-[var(--color-text)]">
                 🏛️ Govt &amp; SaaS Production Apps
               </div>
             </div>
@@ -202,8 +223,8 @@ export default function Hero() {
           transition={{ delay: 1.2, duration: 0.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[var(--color-text-subtle)]"
         >
-          <span className="text-xs">scroll</span>
-          <ChevronDown size={16} className="animate-bounce" />
+          <span className="font-mono text-[10px] tracking-widest uppercase">scroll</span>
+          <ChevronDown size={14} className="animate-bounce" />
         </motion.div>
       </div>
     </section>

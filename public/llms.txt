@@ -18,7 +18,7 @@ Shanmugam R is a Frontend Developer specialising in React.js and Next.js. He has
 ## Work Experience
 
 ### Junior Software Engineer — Storytech Pvt Ltd (June 2024 – May 2026)
-- Project owner for DEET Web Application and DEET Admin Panel (Government of Telangana)
+- Lead developer for all 6 frontend projects — DEET suite (Web App, Admin Panel, Website, Migration) and Workruit (Master, Website)
 - Led migration of legacy AngularJS codebase to modern Next.js architecture
 - Built multi-role job portal for Government of Telangana serving jobseekers, employers, and consultancies
 - Delivered Workruit recruitment SaaS with role-based team access and interview workflows

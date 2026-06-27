@@ -41,16 +41,17 @@ export default function About() {
               {about.summary}
             </p>
 
-            <div className="mt-8 p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)]">
-              <p className="text-sm font-semibold text-[var(--color-text)] mb-3">
-                Currently deepening:
+            <div className="mt-8 p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+              <p className="font-mono text-xs text-[var(--color-text-subtle)] mb-3 uppercase tracking-widest">
+                <span className="text-[var(--color-accent)] opacity-60">{'// '}</span>
+                currently_learning
               </p>
               <div className="flex flex-wrap gap-2">
                 {['TypeScript (advanced)', 'Next.js App Router patterns', 'Web Performance'].map(
                   (item) => (
                     <span
                       key={item}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20"
+                      className="px-2.5 py-1 font-mono text-xs rounded bg-[var(--color-primary)]/8 text-[var(--color-primary)] border border-[var(--color-primary)]/25"
                     >
                       {item}
                     </span>

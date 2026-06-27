@@ -79,13 +79,15 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    {exp.project_owner && (
-                      <div className="mt-3 flex items-center gap-2 flex-wrap">
-                        <Star size={13} className="text-amber-500 shrink-0" />
+                    {exp.lead_developer && (
+                      <div className="mt-3 flex items-start gap-2 flex-wrap">
+                        <Star size={13} className="text-[var(--color-primary)] shrink-0 mt-0.5" />
                         <span className="text-xs text-[var(--color-text-muted)]">
-                          Project Owner:{' '}
+                          <span className="font-mono text-[var(--color-primary)] mr-1">
+                            Lead Developer:
+                          </span>
                           <span className="font-medium text-[var(--color-text)]">
-                            {exp.project_owner.join(', ')}
+                            {exp.lead_developer.join(' · ')}
                           </span>
                         </span>
                       </div>
@@ -108,11 +110,11 @@ export default function Experience() {
                     )}
 
                     {exp.tech.length > 0 && (
-                      <div className="flex flex-wrap gap-2 pt-4 border-t border-[var(--color-border)]">
+                      <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--color-border)]">
                         {exp.tech.map((t) => (
                           <span
                             key={t}
-                            className="px-2.5 py-0.5 text-xs font-medium rounded-md bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
+                            className="px-2 py-0.5 font-mono text-[11px] rounded bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
                           >
                             {t}
                           </span>

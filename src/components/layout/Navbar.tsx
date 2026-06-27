@@ -50,11 +50,12 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-[var(--color-text)] font-bold text-lg tracking-tight hover:text-[var(--color-primary)] transition-colors"
+            className="font-mono font-bold text-sm tracking-tight hover:text-[var(--color-primary)] transition-colors text-[var(--color-text)]"
             aria-label="Scroll to top"
           >
-            <span className="text-[var(--color-primary)]">S</span>hanmugam
-            <span className="text-[var(--color-primary)]">.</span>
+            <span className="text-[var(--color-accent)] opacity-60">&lt;</span>
+            <span className="text-[var(--color-primary)]">Shanmugam</span>
+            <span className="text-[var(--color-accent)] opacity-60"> /&gt;</span>
           </button>
 
           {/* Desktop nav */}

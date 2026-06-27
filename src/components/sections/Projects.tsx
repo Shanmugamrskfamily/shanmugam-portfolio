@@ -36,7 +36,7 @@ function ProjectCard({
       className="flex flex-col rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/40 hover:shadow-lg transition-all duration-300 group"
     >
       {/* Card header stripe */}
-      <div className="h-1.5 bg-gradient-to-r from-navy-800 to-navy-600 dark:from-navy-400 dark:to-navy-300" />
+      <div className="h-px" style={{ background: 'var(--gradient-accent)' }} />
 
       <div className="flex flex-col flex-1 p-5 sm:p-6">
         {/* Type & Status row */}
@@ -61,7 +61,7 @@ function ProjectCard({
         <h3 className="text-base font-bold text-[var(--color-text)] leading-snug mb-1 group-hover:text-[var(--color-primary)] transition-colors">
           {project.name}
         </h3>
-        <p className="text-xs text-[var(--color-primary)] font-medium mb-3">{project.role}</p>
+        <p className="font-mono text-xs text-[var(--color-primary)] mb-3">{project.role}</p>
 
         {/* Description */}
         <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4 flex-1">
@@ -88,13 +88,13 @@ function ProjectCard({
           {project.tech.slice(0, 6).map((t) => (
             <span
               key={t}
-              className="px-2 py-0.5 text-xs font-medium rounded-md bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
+              className="px-2 py-0.5 font-mono text-[11px] rounded bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
             >
               {t}
             </span>
           ))}
           {project.tech.length > 6 && (
-            <span className="px-2 py-0.5 text-xs text-[var(--color-text-subtle)]">
+            <span className="px-2 py-0.5 font-mono text-[11px] text-[var(--color-text-subtle)]">
               +{project.tech.length - 6}
             </span>
           )}

@@ -18,23 +18,31 @@ export default function SectionHeading({
   return (
     <div className={cn('mb-12', align === 'center' && 'text-center', className)}>
       {eyebrow && (
-        <span className="inline-block text-xs font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3">
-          {eyebrow}
-        </span>
+        <div
+          className={cn(
+            'inline-flex items-center gap-1.5 mb-4',
+            align === 'center' && 'justify-center w-full'
+          )}
+        >
+          <span className="font-mono text-xs text-[var(--color-accent)] opacity-70 select-none">
+            {'//'}
+          </span>
+          <span className="font-mono text-xs tracking-[0.15em] uppercase text-[var(--color-primary)]">
+            {eyebrow}
+          </span>
+        </div>
       )}
       <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)] leading-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-lg text-[var(--color-text-muted)] leading-relaxed max-w-2xl">
+        <p className="mt-4 text-base text-[var(--color-text-muted)] leading-relaxed max-w-2xl">
           {subtitle}
         </p>
       )}
       <div
-        className={cn(
-          'mt-4 h-1 w-12 rounded-full bg-[var(--color-primary)]',
-          align === 'center' && 'mx-auto'
-        )}
+        className={cn('mt-5 h-0.5 w-10 rounded-full', align === 'center' && 'mx-auto')}
+        style={{ background: 'var(--gradient-accent)' }}
       />
     </div>
   );
