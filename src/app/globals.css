@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #1f3864;
+    --color-primary-hover: #162952;
+    --color-accent: #2a4ab8;
+    --color-bg: #ffffff;
+    --color-bg-secondary: #eef2fb;
+    --color-surface: #e2e9f6;
+    --color-border: #bfcce8;
+    --color-text: #080f20;
+    --color-text-muted: #374d72;
+    --color-text-subtle: #6278a3;
+    --gradient-primary: linear-gradient(135deg, #1f3864 0%, #2a4ab8 100%);
+    --gradient-accent: linear-gradient(135deg, #2a4ab8 0%, #4a6ed6 100%);
+  }
+
+  .dark {
+    --color-primary: #4a7bf7;
+    --color-primary-hover: #7d9bff;
+    --color-accent: #5a7eef;
+    --color-bg: #050d1a;
+    --color-bg-secondary: #0a1628;
+    --color-surface: #0f1f38;
+    --color-border: #1e2d4a;
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-text-subtle: #64748b;
+    --gradient-primary: linear-gradient(135deg, #1a2f5e 0%, #2a4ab8 100%);
+    --gradient-accent: linear-gradient(135deg, #3a5fd6 0%, #5a7eef 100%);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: rgba(31, 56, 100, 0.25);
+    color: var(--color-text);
+  }
+
+  .dark ::selection {
+    background-color: rgba(74, 123, 247, 0.35);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+
+  .border-default {
+    border-color: var(--color-border);
+  }
+
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+
+  .container-inner {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-subtle);
+  }
+}
