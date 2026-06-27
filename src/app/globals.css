@@ -3,36 +3,36 @@
 @tailwind utilities;
 
 @layer base {
-  /* Light mode — clean zinc with cyan accent */
+  /* ─── Light mode — Tron bright terminal ─── */
   :root {
-    --color-primary: #0891b2;
-    --color-primary-hover: #0e7490;
-    --color-accent: #7c3aed;
-    --color-bg: #fafafa;
-    --color-bg-secondary: #f4f4f5;
+    --color-primary: #0077aa;
+    --color-primary-hover: #005580;
+    --color-accent: #6600cc;
+    --color-bg: #f0f8ff;
+    --color-bg-secondary: #e2f0fb;
     --color-surface: #ffffff;
-    --color-border: #e4e4e7;
-    --color-text: #09090b;
-    --color-text-muted: #52525b;
-    --color-text-subtle: #a1a1aa;
-    --gradient-primary: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%);
-    --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+    --color-border: #a8d4ee;
+    --color-text: #001624;
+    --color-text-muted: #1a5070;
+    --color-text-subtle: #4a88a8;
+    --gradient-primary: linear-gradient(135deg, #0077aa 0%, #6600cc 100%);
+    --gradient-accent: linear-gradient(135deg, #0099cc 0%, #8844ff 100%);
   }
 
-  /* Dark mode — near-black zinc with electric cyan accent */
+  /* ─── Dark mode — Tron Legacy ─── */
   .dark {
-    --color-primary: #22d3ee;
-    --color-primary-hover: #67e8f9;
-    --color-accent: #a78bfa;
-    --color-bg: #09090b;
-    --color-bg-secondary: #111113;
-    --color-surface: #18181b;
-    --color-border: #27272a;
-    --color-text: #fafafa;
-    --color-text-muted: #a1a1aa;
-    --color-text-subtle: #52525b;
-    --gradient-primary: linear-gradient(135deg, #0891b2 0%, #7c3aed 100%);
-    --gradient-accent: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+    --color-primary: #00e5ff;
+    --color-primary-hover: #40eeff;
+    --color-accent: #9b59ff;
+    --color-bg: #000d1a;
+    --color-bg-secondary: #01111f;
+    --color-surface: #051c2e;
+    --color-border: #0a3854;
+    --color-text: #cef0ff;
+    --color-text-muted: #5ab8cc;
+    --color-text-subtle: #1e5a6e;
+    --gradient-primary: linear-gradient(135deg, #00bfff 0%, #9b59ff 100%);
+    --gradient-accent: linear-gradient(135deg, #00e5ff 0%, #9b59ff 100%);
   }
 
   * {
@@ -55,12 +55,13 @@
   }
 
   ::selection {
-    background-color: rgba(8, 145, 178, 0.2);
+    background-color: rgba(0, 119, 170, 0.25);
     color: var(--color-text);
   }
 
   .dark ::selection {
-    background-color: rgba(34, 211, 238, 0.25);
+    background-color: rgba(0, 229, 255, 0.2);
+    color: #00e5ff;
   }
 }
 
@@ -103,31 +104,74 @@
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Tech-style glow ring for primary elements */
+  /* Tron glow ring */
   .glow-ring {
     box-shadow:
       0 0 0 1px var(--color-primary),
-      0 0 20px rgba(34, 211, 238, 0.12);
+      0 0 16px rgba(0, 119, 170, 0.2);
   }
 
   .dark .glow-ring {
     box-shadow:
       0 0 0 1px var(--color-primary),
-      0 0 24px rgba(34, 211, 238, 0.18);
+      0 0 24px rgba(0, 229, 255, 0.25);
   }
 
-  /* Custom scrollbar */
+  /* Tron card hover glow */
+  .tron-card {
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .dark .tron-card:hover {
+    box-shadow:
+      0 0 20px rgba(0, 229, 255, 0.08),
+      inset 0 0 20px rgba(0, 229, 255, 0.02);
+  }
+
+  /* Tron badge — used for all tech skill pills */
+  .tron-badge {
+    background: rgba(0, 119, 170, 0.06);
+    border: 1px solid rgba(0, 119, 170, 0.3);
+    color: var(--color-text-muted);
+  }
+
+  .dark .tron-badge {
+    background: rgba(0, 229, 255, 0.05);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    color: var(--color-text-muted);
+  }
+
+  .tron-badge:hover,
+  .group:hover .tron-badge {
+    border-color: rgba(0, 119, 170, 0.6);
+    color: var(--color-primary);
+  }
+
+  .dark .tron-badge:hover,
+  .dark .group:hover .tron-badge {
+    background: rgba(0, 229, 255, 0.08);
+    border-color: rgba(0, 229, 255, 0.45);
+    color: var(--color-primary);
+  }
+
+  /* Custom scrollbar — Tron style */
   ::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-bg-secondary);
+    background: var(--color-bg);
   }
 
   ::-webkit-scrollbar-thumb {
     background: var(--color-border);
-    border-radius: 3px;
+    border-radius: 2px;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(0, 229, 255, 0.25);
   }
 
   ::-webkit-scrollbar-thumb:hover {

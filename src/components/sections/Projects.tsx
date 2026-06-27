@@ -33,7 +33,7 @@ function ProjectCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       exit={{ opacity: 0, y: 16 }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
-      className="flex flex-col rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/40 hover:shadow-lg transition-all duration-300 group"
+      className="tron-card flex flex-col rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/50 transition-all duration-300 group"
     >
       {/* Card header stripe */}
       <div className="h-px" style={{ background: 'var(--gradient-accent)' }} />
@@ -86,10 +86,7 @@ function ProjectCard({
         {/* Tech tags */}
         <div className="flex flex-wrap gap-1.5 mb-5">
           {project.tech.slice(0, 6).map((t) => (
-            <span
-              key={t}
-              className="px-2 py-0.5 font-mono text-[11px] rounded bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
-            >
+            <span key={t} className="tron-badge px-2 py-0.5 font-mono text-[11px] rounded">
               {t}
             </span>
           ))}

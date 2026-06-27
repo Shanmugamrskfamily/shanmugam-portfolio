@@ -317,8 +317,8 @@ export const skillGroups: SkillGroup[] = [
     label: 'Programming Principles',
     icon: '🧠',
     skills: [
-      'Functional programming (pure functions, immutability)',
-      'OOP patterns (classes, inheritance, encapsulation)',
+      'Functional programming',
+      'OOP patterns',
       'Component architecture',
       'Code review & PR ownership',
     ],
@@ -380,14 +380,14 @@ export const skillGroups: SkillGroup[] = [
     label: 'Dev Tools & Version Control',
     icon: '🛠️',
     skills: [
-      'Git (branching, merging, PRs)',
+      'Git',
       'GitHub',
       'Bitbucket',
       'VS Code',
       'Postman',
       'Chrome DevTools',
       'npm',
-      'Environment variables (.env)',
+      '.env management',
     ],
   },
   {

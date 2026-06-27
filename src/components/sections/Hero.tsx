@@ -18,10 +18,10 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       aria-label="Introduction"
     >
-      {/* Background grid */}
+      {/* Background grid — Tron cyan on dark, subtle blue on light */}
       <div
-        className="absolute inset-0 bg-grid-light dark:bg-grid-dark opacity-30 dark:opacity-100"
-        style={{ backgroundSize: '40px 40px' }}
+        className="absolute inset-0 bg-grid-light dark:bg-grid-dark opacity-60 dark:opacity-100"
+        style={{ backgroundSize: '44px 44px' }}
         aria-hidden
       />
 
@@ -35,15 +35,15 @@ export default function Hero() {
         aria-hidden
       />
 
-      {/* Accent glow blobs */}
+      {/* Tron glow blobs */}
       <div
         className="absolute top-1/3 -left-48 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(0,229,255,0.06) 0%, transparent 70%)' }}
         aria-hidden
       />
       <div
         className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(155,89,255,0.05) 0%, transparent 70%)' }}
         aria-hidden
       />
 
@@ -183,16 +183,16 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative">
+            <div className="relative mb-10 lg:mb-0">
               {/* Decorative rings */}
               <div className="absolute -inset-4 rounded-full border border-dashed border-[var(--color-primary)]/20 animate-spin-slow" />
               <div className="absolute -inset-8 rounded-full border border-[var(--color-primary)]/08" />
 
-              {/* Glow behind photo */}
+              {/* Tron glow behind photo */}
               <div
                 className="absolute inset-0 rounded-full blur-2xl"
                 style={{
-                  background: 'radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(0,229,255,0.14) 0%, transparent 70%)',
                 }}
               />
 
@@ -221,7 +221,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[var(--color-text-subtle)]"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 text-[var(--color-text-subtle)]"
         >
           <span className="font-mono text-[10px] tracking-widest uppercase">scroll</span>
           <ChevronDown size={14} className="animate-bounce" />
