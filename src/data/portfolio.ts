@@ -31,7 +31,7 @@ export const social = {
 
 export const about = {
   summary:
-    "Frontend Developer with 2+ years of production experience building secure, responsive, and scalable web applications using React.js, Next.js, and Angular. I've shipped government-scale job portals for the Government of Telangana (DEET) and SaaS recruitment products (Workruit), and led the migration of a legacy AngularJS codebase to a modern Next.js architecture. My background is a little different — I spent six years as a team leader and Safety Spoke at Michelin India before making a deliberate switch into software development. That experience gave me ownership, process discipline, and a structured approach to problem-solving that I bring into every engineering role. I'm proficient in functional programming principles, OOP patterns, code review practices, REST API integration, state management, UI performance optimization, and web security (XSS, CSP). Currently deepening my TypeScript skills and working on a Next.js + Tailwind + TypeScript practice project.",
+    "Frontend Developer with 2+ years of production experience building secure, responsive, and scalable web applications using React.js, Next.js, and Angular. I've shipped government-scale job portals for the Government of Telangana (DEET) and SaaS recruitment products (Workruit), and led the migration of a legacy AngularJS codebase to a modern Next.js architecture. I've since expanded into full-stack delivery — solo-designing, building, securing, and deploying a complete Next.js/Express production platform for a freelance client, going beyond my day-job's frontend-only scope into backend architecture, authentication, and DevOps. My background is a little different — I spent six years as a team leader and Safety Spoke at Michelin India before making a deliberate switch into software development. That experience gave me ownership, process discipline, and a structured approach to problem-solving that I bring into every engineering role. I'm proficient in functional programming principles, OOP patterns, code review practices, REST API integration, state management, UI performance optimization, and web security (XSS, CSP, JWT/RBAC, encryption). Currently deepening my TypeScript skills.",
   highlights: [
     '2+ years of production experience with React.js and Next.js',
     'Lead developer for all 6 frontend projects at Storytech (DEET suite & Workruit)',
@@ -39,14 +39,24 @@ export const about = {
     'Former Operations Team Leader and Safety Spoke at Michelin India',
     'B.Sc. Computer Science — University of Madras',
     'GUVI Full Stack Development (MERN) certified — IIT Madras incubated',
+    'Solo full-stack freelance delivery — Next.js + Express platform with custom JWT/RBAC (4 roles) and AES-256 encrypted API layer',
+    "Migrated a client's production site from WordPress to a modern Next.js/Express stack with zero-downtime DNS cutover",
+    'Backend production experience: Node.js, Express, MongoDB/Mongoose, JWT auth, Zod validation, rate limiting',
   ],
   stats: [
     { label: 'Years Experience', value: '2+' },
-    { label: 'Production Projects', value: '6' },
+    { label: 'Production Projects', value: '7' },
     { label: 'Govt Applications', value: '2' },
     { label: 'Prior Career (Yrs)', value: '6' },
   ],
+  currentlyLearning: ['TypeScript (advanced patterns)', 'Data Structures & Algorithms'],
 };
+
+export const languages = [
+  { language: 'Telugu', proficiency: 'Native — Speaking only' },
+  { language: 'Tamil', proficiency: 'Read, Write, Speak' },
+  { language: 'English', proficiency: 'Read, Write, Speak' },
+];
 
 export const experiences: Experience[] = [
   {
@@ -101,6 +111,52 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    company: 'RS Technologies',
+    location: 'Chrompet, Chennai, India (Freelance/Remote)',
+    role: 'Full-Stack Developer (Freelance)',
+    start: '2026',
+    end: '2026',
+    type: 'Freelance',
+    responsibilities: [
+      'Solo-designed, built, secured, and deployed a complete production platform for a CCTV/security-systems business — migrating them off legacy WordPress (Bluehost) to a custom Next.js frontend + Express backend, both hosted on Vercel',
+      'Built a 4-role JWT-based RBAC system (Super Admin, Admin, Sales User, Demo) with server-side-fresh permission checks on every request — enforced at both UI and API layers, never trusting the frontend alone',
+      'Designed and implemented a custom AES-256 encrypted request/response envelope layered on top of standard HTTPS across all frontend-backend API traffic',
+      'Built a full internal admin/CRM dashboard: enquiries and feedback management with audited status workflows, an Offer Campaign builder with role-gated deletion, Sales User account management with self-service password reset, and a 14-day auto-purging activity audit log',
+      'Engineered a serverless-aware backend (lazily-opened, cached MongoDB connections per request) and a dual-mode scheduled-job architecture that runs correctly whether deployed via Vercel Cron or a traditional always-on node-cron server',
+      'Built a 260+ page data-driven product catalog (6 categories → 40+ sub-categories → 200+ products) using generateStaticParams for static generation at scale',
+      'Diagnosed and fixed a React Portal/CSS-stacking-context bug causing a social-share modal to bleed through sibling cards, using an SSR-safe useSyncExternalStore mount guard',
+      'Diagnosed and fixed an admin pagination race condition (serverless cold-start response ordering) via a request-id ref guard',
+      'Built comprehensive technical SEO: JSON-LD structured data (Organization, LocalBusiness, Product, BlogPosting, FAQPage), sitemap/robots.txt explicitly allowlisting AI crawlers (GPTBot, Google-Extended, anthropic-ai), full Google Search Console + Bing Webmaster Tools setup',
+      'Identified and remediated a real secret-management gap (live credentials in a .env.example file) during a self-audit, and produced a password-protected AES-256-encrypted credentials reference document',
+      'Produced complete handover documentation for a non-technical business owner: a Digital Operations Handbook, a Developer Guide, and a confidential encrypted Environment Variables reference',
+    ],
+    tech: [
+      'Next.js 16 (App Router)',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS 4',
+      'Framer Motion',
+      'Node.js',
+      'Express',
+      'MongoDB/Mongoose',
+      'JWT',
+      'bcrypt',
+      'Zod',
+      'AES-256 encryption',
+      'Helmet',
+      'express-rate-limit',
+      'CORS',
+      'Cloudinary',
+      'Brevo (transactional email)',
+      'Google Analytics 4 (server-side API)',
+      'Google Search Console',
+      'Vercel (serverless + Cron)',
+      'node-cron',
+      'React Portals',
+      'useSyncExternalStore',
+    ],
+  },
+  {
     company: 'VeriTech Software IT Services',
     location: 'Pune, India · Remote',
     role: 'Web Developer Intern',
@@ -141,6 +197,43 @@ export const experiences: Experience[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    name: 'RS Technologies — Business Platform & Admin CRM',
+    type: 'Freelance Full-Stack Production Application',
+    role: 'Solo Full-Stack Developer',
+    description:
+      "Solo full-stack rebuild and migration of a CCTV/security-systems company's website and internal operations — from legacy WordPress to a custom Next.js + Express platform, including a full internal admin/CRM system for sales lead and offer management.",
+    features: [
+      '260+ page data-driven product catalog (6 verticals → 40+ sub-categories → 200+ products)',
+      '4-role JWT/RBAC system (Super Admin, Admin, Sales User, Demo) enforced at UI and API layers',
+      'Custom AES-256 encrypted API envelope across all frontend-backend traffic',
+      'Internal admin CRM: enquiries/feedback workflows, Offer Campaign builder, Sales User management, 14-day auto-purging activity audit log',
+      'Time-limited Offer Campaign system with multi-channel Share feature (WhatsApp/Telegram/Facebook/email/SMS)',
+      'In-house blog with programmatically-generated branded cover art',
+      'Full technical SEO: JSON-LD structured data, AI-crawler-aware robots.txt, Search Console + Bing verification',
+      'Zero-downtime DNS cutover from Bluehost/WordPress to Vercel',
+    ],
+    tech: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS 4',
+      'Framer Motion',
+      'Node.js',
+      'Express',
+      'MongoDB/Mongoose',
+      'JWT/RBAC',
+      'AES-256 encryption',
+      'Zod',
+      'Cloudinary',
+      'Brevo',
+      'Google Analytics 4',
+      'Vercel',
+    ],
+    live_url: 'https://rstechnologies.in/',
+    status: 'Live',
+    category: 'freelance',
+  },
   {
     name: 'DEET — Government of Telangana Job Portal',
     type: 'Government · Production',
@@ -341,7 +434,7 @@ export const skillGroups: SkillGroup[] = [
   {
     label: 'Forms & Validation',
     icon: '✅',
-    skills: ['Formik', 'Yup', 'Input sanitization'],
+    skills: ['Formik', 'Yup', 'Zod', 'Input sanitization'],
   },
   {
     label: 'APIs & Data',
@@ -355,6 +448,9 @@ export const skillGroups: SkillGroup[] = [
       'SEO optimization',
       'Google Analytics',
       'JSON handling',
+      'Mongoose ODM/schema design',
+      'Server-side GA4 Data API integration',
+      'Transactional email (Brevo HTTPS API)',
     ],
   },
   {
@@ -374,7 +470,17 @@ export const skillGroups: SkillGroup[] = [
   {
     label: 'Security',
     icon: '🔒',
-    skills: ['XSS prevention', 'Content Security Policy (CSP)', 'Input validation & sanitization'],
+    skills: [
+      'XSS prevention',
+      'Content Security Policy (CSP)',
+      'Input validation & sanitization',
+      'JWT/RBAC design from scratch',
+      'AES-256 encrypted API envelopes',
+      'Helmet security headers',
+      'MongoDB query sanitization',
+      'HTTP parameter pollution protection',
+      'Secret-management auditing',
+    ],
   },
   {
     label: 'Dev Tools & Version Control',
@@ -396,9 +502,32 @@ export const skillGroups: SkillGroup[] = [
     skills: ['AWS Amplify', 'AWS S3', 'Vercel', 'Netlify', 'Render', 'Agile / Scrum', 'Asana'],
   },
   {
-    label: 'Backend (Foundational)',
+    label: 'Backend',
     icon: '🗄️',
-    skills: ['Node.js', 'Express.js', 'MongoDB', 'MySQL'],
+    skills: [
+      'Node.js',
+      'Express.js',
+      'MongoDB/Mongoose',
+      'MySQL',
+      'JWT authentication & RBAC (role-based access control)',
+      'REST API design (MVC pattern)',
+      'Zod schema validation',
+      'bcrypt password hashing',
+      'Rate limiting',
+      'AES-256 encryption',
+      'Serverless-aware backend design (Vercel Functions)',
+    ],
+  },
+  {
+    label: 'DevOps & Production',
+    icon: '☁️',
+    skills: [
+      'Multi-repo, multi-environment deployment (Vercel)',
+      'DNS management and zero-downtime domain cutover',
+      'Environment variable and secrets management across environments',
+      'Dual-mode scheduled jobs (Vercel Cron + node-cron)',
+      'Production incident diagnosis under live-traffic constraints',
+    ],
   },
 ];
 

@@ -5,7 +5,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { about } from '@/data/portfolio';
+import { about, languages } from '@/data/portfolio';
 
 export default function About() {
   const ref = useRef(null);
@@ -47,16 +47,33 @@ export default function About() {
                 currently_learning
               </p>
               <div className="flex flex-wrap gap-2">
-                {['TypeScript (advanced)', 'Next.js App Router patterns', 'Web Performance'].map(
-                  (item) => (
-                    <span
-                      key={item}
-                      className="px-2.5 py-1 font-mono text-xs rounded bg-[var(--color-primary)]/8 text-[var(--color-primary)] border border-[var(--color-primary)]/25"
-                    >
-                      {item}
+                {about.currentlyLearning.map((item) => (
+                  <span
+                    key={item}
+                    className="px-2.5 py-1 font-mono text-xs rounded bg-[var(--color-primary)]/8 text-[var(--color-primary)] border border-[var(--color-primary)]/25"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-4 p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+              <p className="font-mono text-xs text-[var(--color-text-subtle)] mb-3 uppercase tracking-widest">
+                <span className="text-[var(--color-accent)] opacity-70">{'✦ '}</span>
+                languages
+              </p>
+              <div className="space-y-2">
+                {languages.map((lang) => (
+                  <div key={lang.language} className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-medium text-[var(--color-text)]">
+                      {lang.language}
                     </span>
-                  )
-                )}
+                    <span className="font-mono text-[11px] text-[var(--color-text-subtle)]">
+                      {lang.proficiency}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>

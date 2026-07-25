@@ -19,7 +19,7 @@ export interface Project {
   tech: string[];
   live_url: string | null;
   status: string;
-  category: 'government' | 'saas' | 'migration';
+  category: 'government' | 'saas' | 'migration' | 'freelance';
 }
 
 export interface Education {

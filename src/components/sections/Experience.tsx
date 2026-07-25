@@ -30,22 +30,48 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
+          {/* Static background line */}
           <div className="absolute left-6 top-0 bottom-0 w-px bg-[var(--color-border)] hidden sm:block" />
+
+          {/* Animated gradient line drawn on scroll */}
+          <motion.div
+            className="absolute left-6 top-0 w-px hidden sm:block origin-top"
+            style={{
+              background:
+                'linear-gradient(to bottom, var(--color-primary), var(--color-accent) 60%, var(--color-border))',
+              height: '100%',
+            }}
+            initial={{ scaleY: 0 }}
+            animate={inView ? { scaleY: 1 } : {}}
+            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          />
 
           <div className="space-y-8">
             {experiences.map((exp, i) => (
               <motion.div
                 key={`${exp.company}-${i}`}
-                initial={{ opacity: 0, x: -24 }}
+                initial={{ opacity: 0, x: -28 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.55, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                 className="relative sm:pl-16"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 top-6 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-[var(--color-primary)] bg-[var(--color-bg)] hidden sm:block z-10" />
+                <div className="absolute left-4 top-6 -translate-x-1/2 hidden sm:flex items-center justify-center z-10">
+                  <div
+                    className={`w-4 h-4 rounded-full border-2 border-[var(--color-primary)] bg-[var(--color-bg)] ${
+                      i === 0 ? 'ring-2 ring-[var(--color-primary)]/20' : ''
+                    }`}
+                  />
+                  {/* Pulsing ring for current job */}
+                  {i === 0 && (
+                    <span className="absolute inset-0 rounded-full border-2 border-[var(--color-primary)] animate-ping opacity-50" />
+                  )}
+                </div>
 
-                <div className="sw-card rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/50 transition-all duration-300">
+                <div className="sw-card card-shimmer rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/50 hover:scale-[1.005] transition-all duration-300 group">
+                  {/* Top accent line — glows on hover */}
+                  <div className="h-[2px] bg-gradient-to-r from-transparent via-[var(--color-primary)]/0 to-transparent group-hover:via-[var(--color-primary)]/60 transition-all duration-500" />
+
                   {/* Header */}
                   <div className="p-5 sm:p-6 border-b border-[var(--color-border)]">
                     <div className="flex flex-wrap items-start justify-between gap-3">
@@ -53,14 +79,25 @@ export default function Experience() {
                         <div className="flex items-center gap-2 mb-1">
                           <span
                             className={`w-2 h-2 rounded-full ${
-                              exp.type === 'Full-time' ? 'bg-emerald-500' : 'bg-amber-500'
+                              exp.type === 'Full-time'
+                                ? 'bg-emerald-500'
+                                : exp.type === 'Freelance'
+                                  ? 'bg-violet-500'
+                                  : 'bg-amber-500'
                             }`}
                           />
                           <span className="text-xs font-medium text-[var(--color-text-muted)]">
                             {exp.type}
                           </span>
+                          {i === 0 && (
+                            <span className="px-1.5 py-0.5 text-[10px] font-mono font-semibold rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25">
+                              Most Recent
+                            </span>
+                          )}
                         </div>
-                        <h3 className="text-lg font-bold text-[var(--color-text)]">{exp.role}</h3>
+                        <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
+                          {exp.role}
+                        </h3>
                         <p className="text-base font-semibold text-[var(--color-primary)]">
                           {exp.company}
                         </p>
@@ -99,12 +136,22 @@ export default function Experience() {
                     {exp.responsibilities.length > 0 && (
                       <ul className="space-y-2.5 mb-5">
                         {exp.responsibilities.map((r, j) => (
-                          <li key={j} className="flex items-start gap-2.5">
+                          <motion.li
+                            key={j}
+                            initial={{ opacity: 0, x: -12 }}
+                            animate={inView ? { opacity: 1, x: 0 } : {}}
+                            transition={{
+                              duration: 0.35,
+                              delay: 0.4 + i * 0.12 + j * 0.04,
+                              ease: 'easeOut',
+                            }}
+                            className="flex items-start gap-2.5"
+                          >
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
                             <span className="text-sm text-[var(--color-text-muted)] leading-relaxed">
                               {r}
                             </span>
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                     )}

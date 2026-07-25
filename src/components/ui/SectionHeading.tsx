@@ -20,8 +20,8 @@ export default function SectionHeading({
       {eyebrow && (
         <div
           className={cn(
-            'inline-flex items-center gap-1.5 mb-4',
-            align === 'center' && 'justify-center w-full'
+            'inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5',
+            align === 'center' && 'justify-center'
           )}
         >
           <span className="font-display text-xs text-[var(--color-accent)] opacity-80 select-none">
@@ -40,9 +40,15 @@ export default function SectionHeading({
           {subtitle}
         </p>
       )}
+
+      {/* Animated gradient underline */}
       <div
-        className={cn('mt-5 h-0.5 w-10 rounded-full', align === 'center' && 'mx-auto')}
-        style={{ background: 'var(--gradient-accent)' }}
+        className={cn('mt-5 h-[3px] w-14 rounded-full', align === 'center' && 'mx-auto')}
+        style={{
+          background: 'var(--gradient-accent)',
+          backgroundSize: '200% 100%',
+          animation: 'gradient-x 3s ease infinite',
+        }}
       />
     </div>
   );

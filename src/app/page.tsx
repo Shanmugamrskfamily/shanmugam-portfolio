@@ -9,6 +9,7 @@ import Projects from '@/components/sections/Projects';
 import Education from '@/components/sections/Education';
 import Contact from '@/components/sections/Contact';
 import ScrollToTop from '@/components/ScrollToTop';
+import ScrollProgress from '@/components/ui/ScrollProgress';
 
 export const metadata: Metadata = {
   title: 'Shanmugam R | Frontend Developer — React.js & Next.js',
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <Navbar />
       <main id="main-content">
         <Hero />

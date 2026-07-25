@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 @layer base {
-  /* ─── Light mode — Rebellion / Jedi Temple ─── */
+  /* ─── Light mode — Jedi Council / Republic ─── */
   :root {
-    --color-primary: #1a3a8a;
-    --color-primary-hover: #102868;
-    --color-accent: #b45309;
-    --color-bg: #fdf8ee;
-    --color-bg-secondary: #f5ede0;
+    --color-primary: #1d4ed8;
+    --color-primary-hover: #1e40af;
+    --color-accent: #6d28d9;
+    --color-bg: #f8fafc;
+    --color-bg-secondary: #f1f5f9;
     --color-surface: #ffffff;
-    --color-border: #ddd0b0;
-    --color-text: #1a1a2e;
-    --color-text-muted: #4a5a78;
-    --color-text-subtle: #8a9ab4;
-    --gradient-primary: linear-gradient(135deg, #1a3a8a 0%, #b45309 100%);
-    --gradient-accent: linear-gradient(135deg, #1d4ed8 0%, #d97706 100%);
+    --color-border: #e2e8f0;
+    --color-text: #0f172a;
+    --color-text-muted: #475569;
+    --color-text-subtle: #94a3b8;
+    --gradient-primary: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+    --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%);
   }
 
   /* ─── Dark mode — The Force / Deep Space ─── */
@@ -55,7 +55,7 @@
   }
 
   ::selection {
-    background-color: rgba(26, 58, 138, 0.22);
+    background-color: rgba(29, 78, 216, 0.18);
     color: var(--color-text);
   }
 
@@ -108,7 +108,7 @@
   .saber-ring {
     box-shadow:
       0 0 0 1px var(--color-primary),
-      0 0 16px rgba(26, 58, 138, 0.2);
+      0 0 16px rgba(29, 78, 216, 0.2);
   }
 
   .dark .saber-ring {
@@ -126,8 +126,8 @@
 
   .sw-card:hover {
     box-shadow:
-      0 0 20px rgba(26, 58, 138, 0.08),
-      inset 0 0 20px rgba(26, 58, 138, 0.02);
+      0 0 20px rgba(29, 78, 216, 0.08),
+      inset 0 0 20px rgba(29, 78, 216, 0.02);
   }
 
   .dark .sw-card:hover {
@@ -138,8 +138,8 @@
 
   /* SW badge — translucent lightsaber-coloured tech pills */
   .sw-badge {
-    background: rgba(26, 58, 138, 0.07);
-    border: 1px solid rgba(26, 58, 138, 0.28);
+    background: rgba(29, 78, 216, 0.06);
+    border: 1px solid rgba(29, 78, 216, 0.25);
     color: var(--color-text-muted);
   }
 
@@ -151,8 +151,8 @@
 
   .sw-badge:hover,
   .group:hover .sw-badge {
-    background: rgba(26, 58, 138, 0.12);
-    border-color: rgba(26, 58, 138, 0.55);
+    background: rgba(29, 78, 216, 0.1);
+    border-color: rgba(29, 78, 216, 0.5);
     color: var(--color-primary);
   }
 
@@ -176,6 +176,92 @@
     opacity: 0.45;
   }
 
+  /* ── Typewriter cursor blink ── */
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  /* ── Floating badge ── */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* ── Shimmer sweep on buttons ── */
+  .btn-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 100%
+    );
+    transform: translateX(-110%);
+    transition: transform 0.55s ease;
+  }
+  .btn-shimmer:hover::after {
+    transform: translateX(110%);
+  }
+
+  /* ── Photo ring pulse (dual-saber) ── */
+  .photo-ring {
+    animation: ring-pulse-light 3.5s ease-in-out infinite;
+  }
+  .dark .photo-ring {
+    animation: ring-pulse-dark 3.5s ease-in-out infinite;
+  }
+
+  /* ── Card hover shimmer ── */
+  .card-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.04) 50%,
+      transparent 60%
+    );
+    transition: left 0.6s ease;
+  }
+  .card-shimmer:hover::after {
+    left: 160%;
+  }
+
+  /* ── Stat card hover shimmer ── */
+  .stat-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-shimmer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(var(--color-primary-rgb, 29, 78, 216), 0.04) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .stat-shimmer:hover::before {
+    transform: translateX(100%);
+  }
+
   /* Custom scrollbar — lightsaber handle style */
   ::-webkit-scrollbar {
     width: 4px;
@@ -196,5 +282,66 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary);
+  }
+}
+
+/* ── Global Keyframes ── */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Light mode: blue → violet ring pulse */
+@keyframes ring-pulse-light {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px rgba(29, 78, 216, 0.45),
+      0 0 20px rgba(29, 78, 216, 0.12);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px rgba(109, 40, 217, 0.45),
+      0 0 28px rgba(109, 40, 217, 0.18);
+  }
+}
+
+/* Dark mode: lightsaber cyan → gold ring pulse */
+@keyframes ring-pulse-dark {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px rgba(91, 200, 245, 0.5),
+      0 0 30px rgba(91, 200, 245, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px rgba(245, 197, 25, 0.5),
+      0 0 30px rgba(245, 197, 25, 0.15);
+  }
+}
+
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
