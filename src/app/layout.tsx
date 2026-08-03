@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Orbitron } from 'next/font/google';
+import { Inter, JetBrains_Mono, Nunito } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import JsonLd from '@/components/JsonLd';
 import './globals.css';
@@ -16,9 +16,10 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const orbitron = Orbitron({
+const nunito = Nunito({
   subsets: ['latin'],
   variable: '--font-display',
+  weight: ['600', '700', '800', '900'],
   display: 'swap',
 });
 
@@ -33,33 +34,27 @@ export const metadata: Metadata = {
   description:
     'Shanmugam R — Frontend Developer with 2+ years of production experience in React.js, Next.js & TypeScript. Built government-scale job portals for the Government of Telangana (DEET) and SaaS products (Workruit). Immediate joiner. Based in Chennai, India.',
   keywords: [
-    // Name variations
     'Shanmugam R',
     'Shanmugam R portfolio',
     'Shanmugam frontend developer',
     'Shanmugam React developer Chennai',
-    // Role keywords
     'Frontend Developer Chennai',
     'React.js Developer Chennai',
     'Next.js Developer India',
     'JavaScript Developer Chennai',
     'TypeScript Developer India',
     'Web Developer Chennai Tamil Nadu',
-    // Skills
     'React.js developer',
     'Next.js developer',
     'TypeScript developer',
     'Tailwind CSS developer',
-    // Projects
     'DEET Telangana developer',
     'Government of Telangana job portal developer',
     'Workruit developer',
-    // Hiring signals
     'hire frontend developer Chennai',
     'available frontend developer India',
     'junior frontend developer Chennai',
     'mid level React developer Chennai',
-    // General
     'portfolio website developer',
     'MERN stack developer Chennai',
   ],
@@ -104,17 +99,11 @@ export const metadata: Metadata = {
     images: [`${baseUrl}/images/profile.png`],
     creator: '@shanmugamrskfamily',
   },
-  alternates: {
-    canonical: baseUrl,
-  },
+  alternates: { canonical: baseUrl },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
-  },
-  verification: {
-    // Add Google Search Console verification token here after verifying:
-    // google: 'your-google-verification-token',
   },
 };
 
@@ -123,7 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable} ${orbitron.variable}`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${nunito.variable}`}
     >
       <body suppressHydrationWarning>
         <ThemeProvider

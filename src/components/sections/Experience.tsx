@@ -13,10 +13,15 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="section-padding bg-[var(--color-bg-secondary)]"
+      className="section-padding bg-[var(--color-bg-secondary)] relative overflow-hidden"
       aria-label="Work experience"
     >
-      <div className="container-inner" ref={ref}>
+      <div
+        className="blob w-96 h-96 -top-20 -right-20 opacity-10 dark:opacity-20 animate-blob-float-b"
+        style={{ background: '#ff6b6b' }}
+      />
+
+      <div className="container-inner relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -30,20 +35,17 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative">
-          {/* Static background line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-[var(--color-border)] hidden sm:block" />
-
-          {/* Animated gradient line drawn on scroll */}
+          {/* Animated timeline line */}
           <motion.div
-            className="absolute left-6 top-0 w-px hidden sm:block origin-top"
+            className="absolute left-6 top-0 w-[3px] rounded-full hidden sm:block"
             style={{
-              background:
-                'linear-gradient(to bottom, var(--color-primary), var(--color-accent) 60%, var(--color-border))',
+              background: 'linear-gradient(to bottom, #6c63ff, #ff6b6b, #ffd93d)',
+              transformOrigin: 'top',
               height: '100%',
             }}
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+            transition={{ duration: 1.6, ease: 'easeOut', delay: 0.3 }}
           />
 
           <div className="space-y-8">
@@ -52,53 +54,55 @@ export default function Experience() {
                 key={`${exp.company}-${i}`}
                 initial={{ opacity: 0, x: -28 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.55, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.5, delay: i * 0.12, ease: [0.34, 1.56, 0.64, 1] }}
                 className="relative sm:pl-16"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 top-6 -translate-x-1/2 hidden sm:flex items-center justify-center z-10">
+                <div className="absolute left-4 top-7 -translate-x-1/2 hidden sm:block z-10">
                   <div
-                    className={`w-4 h-4 rounded-full border-2 border-[var(--color-primary)] bg-[var(--color-bg)] ${
-                      i === 0 ? 'ring-2 ring-[var(--color-primary)]/20' : ''
-                    }`}
+                    className="w-4 h-4 rounded-full border-[3px] border-[var(--color-primary)] bg-[var(--color-bg)]"
+                    style={{ boxShadow: '0 0 0 4px rgba(108,99,255,0.15)' }}
                   />
-                  {/* Pulsing ring for current job */}
-                  {i === 0 && (
-                    <span className="absolute inset-0 rounded-full border-2 border-[var(--color-primary)] animate-ping opacity-50" />
-                  )}
+                  {i === 0 && <div className="absolute inset-0 rounded-full animate-pulse-ring" />}
                 </div>
 
-                <div className="sw-card card-shimmer rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden hover:border-[var(--color-primary)]/50 hover:scale-[1.005] transition-all duration-300 group">
-                  {/* Top accent line — glows on hover */}
-                  <div className="h-[2px] bg-gradient-to-r from-transparent via-[var(--color-primary)]/0 to-transparent group-hover:via-[var(--color-primary)]/60 transition-all duration-500" />
+                <div className="clay-card overflow-hidden">
+                  {/* Gradient header stripe */}
+                  <div
+                    className="h-[3px]"
+                    style={{
+                      background:
+                        i === 0
+                          ? 'linear-gradient(90deg, #6c63ff, #ff6b6b)'
+                          : i === 1
+                            ? 'linear-gradient(90deg, #ff6b6b, #ffd93d)'
+                            : 'linear-gradient(90deg, #4ecdc4, #6c63ff)',
+                    }}
+                  />
 
                   {/* Header */}
                   <div className="p-5 sm:p-6 border-b border-[var(--color-border)]">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>
-                        <div className="flex items-center gap-2 mb-1">
+                        <div className="flex items-center gap-2 mb-1.5">
                           <span
-                            className={`w-2 h-2 rounded-full ${
+                            className={`w-2.5 h-2.5 rounded-full ${
                               exp.type === 'Full-time'
                                 ? 'bg-emerald-500'
                                 : exp.type === 'Freelance'
                                   ? 'bg-violet-500'
                                   : 'bg-amber-500'
                             }`}
+                            style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.2)' }}
                           />
-                          <span className="text-xs font-medium text-[var(--color-text-muted)]">
+                          <span className="text-xs font-semibold text-[var(--color-text-muted)]">
                             {exp.type}
                           </span>
-                          {i === 0 && (
-                            <span className="px-1.5 py-0.5 text-[10px] font-mono font-semibold rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25">
-                              Most Recent
-                            </span>
-                          )}
                         </div>
-                        <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
+                        <h3 className="text-lg font-display font-black text-[var(--color-text)]">
                           {exp.role}
                         </h3>
-                        <p className="text-base font-semibold text-[var(--color-primary)]">
+                        <p className="text-base font-bold text-[var(--color-primary)]">
                           {exp.company}
                         </p>
                       </div>
@@ -117,15 +121,13 @@ export default function Experience() {
                     </div>
 
                     {exp.lead_developer && (
-                      <div className="mt-3 flex items-start gap-2 flex-wrap">
-                        <Star size={13} className="text-[var(--color-primary)] shrink-0 mt-0.5" />
+                      <div className="mt-3 flex items-start gap-2 flex-wrap p-3 rounded-2xl bg-[var(--color-bg)] border border-[var(--color-border)]">
+                        <Star size={13} className="text-[var(--color-accent)] shrink-0 mt-0.5" />
                         <span className="text-xs text-[var(--color-text-muted)]">
-                          <span className="font-mono text-[var(--color-primary)] mr-1">
+                          <span className="font-bold text-[var(--color-text)] mr-1">
                             Lead Developer:
                           </span>
-                          <span className="font-medium text-[var(--color-text)]">
-                            {exp.lead_developer.join(' · ')}
-                          </span>
+                          {exp.lead_developer.join(' · ')}
                         </span>
                       </div>
                     )}
@@ -136,22 +138,18 @@ export default function Experience() {
                     {exp.responsibilities.length > 0 && (
                       <ul className="space-y-2.5 mb-5">
                         {exp.responsibilities.map((r, j) => (
-                          <motion.li
-                            key={j}
-                            initial={{ opacity: 0, x: -12 }}
-                            animate={inView ? { opacity: 1, x: 0 } : {}}
-                            transition={{
-                              duration: 0.35,
-                              delay: 0.4 + i * 0.12 + j * 0.04,
-                              ease: 'easeOut',
-                            }}
-                            className="flex items-start gap-2.5"
-                          >
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+                          <li key={j} className="flex items-start gap-2.5">
+                            <span
+                              className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                              style={{
+                                background: 'var(--gradient-primary)',
+                                backgroundImage: 'linear-gradient(135deg, #6c63ff, #4ecdc4)',
+                              }}
+                            />
                             <span className="text-sm text-[var(--color-text-muted)] leading-relaxed">
                               {r}
                             </span>
-                          </motion.li>
+                          </li>
                         ))}
                       </ul>
                     )}
@@ -161,7 +159,7 @@ export default function Experience() {
                         {exp.tech.map((t) => (
                           <span
                             key={t}
-                            className="sw-badge px-2 py-0.5 font-mono text-[11px] rounded"
+                            className="clay-badge px-2.5 py-1 font-mono text-[11px] font-medium"
                           >
                             {t}
                           </span>
@@ -172,7 +170,7 @@ export default function Experience() {
                     {exp.tech.length === 0 && (
                       <div className="flex items-center gap-2 text-xs text-[var(--color-text-subtle)]">
                         <Briefcase size={13} />
-                        <span>Operations &amp; Manufacturing leadership role</span>
+                        Operations &amp; Manufacturing leadership role
                       </div>
                     )}
                   </div>

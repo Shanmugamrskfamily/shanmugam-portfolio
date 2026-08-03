@@ -13,10 +13,15 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="section-padding bg-[var(--color-bg-secondary)]"
+      className="section-padding bg-[var(--color-bg-secondary)] relative overflow-hidden"
       aria-label="Education and certifications"
     >
-      <div className="container-inner" ref={ref}>
+      <div
+        className="blob w-72 h-72 -bottom-10 -left-10 opacity-10 dark:opacity-20 animate-blob-float-b"
+        style={{ background: '#4ecdc4' }}
+      />
+
+      <div className="container-inner relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -25,35 +30,46 @@ export default function Education() {
           <SectionHeading eyebrow="Education & Certifications" title="Academic background" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Education */}
+        <div className="grid md:grid-cols-2 gap-5">
+          {/* Education entries */}
           {education.map((edu, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300"
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.15 + i * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+              className="clay-card overflow-hidden"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0">
-                  <GraduationCap size={24} className="text-[var(--color-primary)]" />
+              <div
+                className="h-[3px]"
+                style={{ background: 'linear-gradient(90deg, #6c63ff, #4ecdc4)' }}
+              />
+              <div className="p-6 flex items-start gap-4">
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
+                  style={{
+                    background: 'rgba(108,99,255,0.1)',
+                    border: '1.5px solid rgba(108,99,255,0.2)',
+                    boxShadow: '0 4px 0 rgba(108,99,255,0.15)',
+                  }}
+                >
+                  <GraduationCap size={22} className="text-[var(--color-primary)]" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-[var(--color-text)] text-base leading-snug mb-1">
+                  <h3 className="font-display font-black text-base text-[var(--color-text)] leading-snug mb-1">
                     {edu.degree}
                   </h3>
-                  <p className="text-sm font-medium text-[var(--color-primary)] mb-1">
+                  <p className="text-sm font-bold text-[var(--color-primary)] mb-1">
                     {edu.institution}
                   </p>
                   <p className="text-xs text-[var(--color-text-muted)] mb-3">{edu.university}</p>
-                  <div className="flex flex-wrap gap-3">
-                    <span className="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-muted)]">
-                      <Calendar size={12} />
+                  <div className="flex flex-wrap gap-2">
+                    <span className="clay-badge inline-flex items-center gap-1.5 px-2.5 py-1 text-xs">
+                      <Calendar size={11} />
                       {edu.start} – {edu.end}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 text-xs text-[var(--color-text-muted)]">
-                      <Percent size={12} />
+                    <span className="clay-badge inline-flex items-center gap-1.5 px-2.5 py-1 text-xs">
+                      <Percent size={11} />
                       {edu.percentage}
                     </span>
                   </div>
@@ -66,20 +82,31 @@ export default function Education() {
           {certifications.map((cert, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="p-6 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300"
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+              className="clay-card overflow-hidden"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
-                  <Award size={24} className="text-amber-600 dark:text-amber-400" />
+              <div
+                className="h-[3px]"
+                style={{ background: 'linear-gradient(90deg, #ffd93d, #ff6b6b)' }}
+              />
+              <div className="p-6 flex items-start gap-4">
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
+                  style={{
+                    background: 'rgba(255,217,61,0.12)',
+                    border: '1.5px solid rgba(255,217,61,0.3)',
+                    boxShadow: '0 4px 0 rgba(255,217,61,0.2)',
+                  }}
+                >
+                  <Award size={22} className="text-amber-600 dark:text-amber-400" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-[var(--color-text)] text-base leading-snug mb-1">
+                  <h3 className="font-display font-black text-base text-[var(--color-text)] leading-snug mb-1">
                     {cert.name}
                   </h3>
-                  <p className="text-sm font-medium text-[var(--color-primary)] mb-1">
+                  <p className="text-sm font-bold text-[var(--color-primary)] mb-1">
                     {cert.issuer}
                   </p>
                   <p className="text-xs text-[var(--color-text-muted)] mb-4">Issued {cert.year}</p>
@@ -87,7 +114,7 @@ export default function Education() {
                     href={cert.credential_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-primary)] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-primary)] hover:underline"
                   >
                     <ExternalLink size={12} />
                     Verify Certificate
