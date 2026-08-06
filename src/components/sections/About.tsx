@@ -18,7 +18,7 @@ export default function About() {
     >
       {/* Subtle bg blob */}
       <div
-        className="blob w-80 h-80 top-0 right-0 opacity-10 dark:opacity-20 animate-blob-float-b"
+        className="blob w-80 h-80 top-0 right-0 opacity-10 dark:opacity-20"
         style={{ background: '#4ecdc4' }}
       />
 

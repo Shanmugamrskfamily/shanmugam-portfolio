@@ -6,6 +6,8 @@ import { Github, Linkedin, Mail, Download, ArrowRight, MapPin, ChevronDown } fro
 import { motion, useInView } from 'framer-motion';
 import { personal, social, about } from '@/data/portfolio';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
+import HeroSceneWrapper from '@/components/three/HeroSceneWrapper';
+import { useMagneticHover } from '@/hooks/useMagneticHover';
 
 const ROLES = [
   'Frontend Developer',
@@ -60,6 +62,8 @@ function TypewriterRole() {
 export default function Hero() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
+  const resumeBtnRef = useMagneticHover<HTMLAnchorElement>(0.25);
+  const contactBtnRef = useMagneticHover<HTMLAnchorElement>(0.25);
 
   return (
     <section
@@ -68,20 +72,6 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       aria-label="Introduction"
     >
-      {/* ── Blob background ── */}
-      <div
-        className="blob w-[600px] h-[600px] -top-40 -left-40 animate-blob-float opacity-25 dark:opacity-40"
-        style={{ background: '#6c63ff' }}
-      />
-      <div
-        className="blob w-[500px] h-[500px] top-40 -right-32 animate-blob-float-b opacity-20 dark:opacity-35"
-        style={{ background: '#ff6b6b' }}
-      />
-      <div
-        className="blob w-[380px] h-[380px] bottom-0 left-1/3 animate-blob-float-c opacity-15 dark:opacity-30"
-        style={{ background: '#4ecdc4' }}
-      />
-
       <div className="container-inner relative z-10 pt-28 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* ── Left: Text ── */}
@@ -157,6 +147,7 @@ export default function Hero() {
             {/* CTAs */}
             <motion.div {...spring(0.5)} className="flex flex-wrap gap-3 mb-8">
               <a
+                ref={resumeBtnRef}
                 href={personal.resumeDownloadUrl}
                 download="Shanmugam_R_Resume.pdf"
                 className="clay-btn gap-2 px-6 py-3 text-sm bg-[var(--color-primary)] text-white"
@@ -174,6 +165,7 @@ export default function Hero() {
                 <ArrowRight size={15} />
               </button>
               <a
+                ref={contactBtnRef}
                 href={social.email}
                 className="clay-btn gap-2 px-6 py-3 text-sm bg-[var(--color-secondary)] text-white"
               >
@@ -211,17 +203,23 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
+              {/* 3D wireframe polyhedron — sized to wrap around the photo, responsive at every breakpoint */}
+              <HeroSceneWrapper />
+
               {/* Floating stat: top-right */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -top-4 -right-6 clay-card-sm px-4 py-2.5 text-center z-10 animate-float"
+                className="absolute -top-4 -right-6 px-4 py-2.5 text-center z-10 animate-float rounded-2xl text-white"
+                style={{
+                  background: 'var(--gradient-primary)',
+                  boxShadow:
+                    '0 8px 24px rgba(108, 99, 255, 0.45), inset 0 1px 0 rgba(255,255,255,0.3)',
+                }}
               >
-                <p className="text-lg font-display font-black text-gradient leading-none">7</p>
-                <p className="font-mono text-[10px] text-[var(--color-text-subtle)] mt-0.5">
-                  Live Apps
-                </p>
+                <p className="text-lg font-display font-black leading-none">7</p>
+                <p className="font-mono text-[10px] opacity-90 mt-0.5">Live Apps</p>
               </motion.div>
 
               {/* Floating stat: bottom-left */}
@@ -229,12 +227,15 @@ export default function Hero() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1, duration: 0.5 }}
-                className="absolute -bottom-4 -left-6 clay-card-sm px-4 py-2.5 text-center z-10 animate-float-slow"
+                className="absolute -bottom-4 -left-6 px-4 py-2.5 text-center z-10 animate-float-slow rounded-2xl text-white"
+                style={{
+                  background: 'var(--gradient-accent)',
+                  boxShadow:
+                    '0 8px 24px rgba(255, 107, 107, 0.45), inset 0 1px 0 rgba(255,255,255,0.3)',
+                }}
               >
-                <p className="text-lg font-display font-black text-gradient leading-none">2+</p>
-                <p className="font-mono text-[10px] text-[var(--color-text-subtle)] mt-0.5">
-                  Yrs Exp
-                </p>
+                <p className="text-lg font-display font-black leading-none">2+</p>
+                <p className="font-mono text-[10px] opacity-90 mt-0.5">Yrs Exp</p>
               </motion.div>
 
               {/* Photo with spinning gradient ring */}
@@ -273,14 +274,14 @@ export default function Hero() {
                 className="absolute -bottom-10 left-0 right-0 flex justify-center"
               >
                 <span
-                  className="whitespace-nowrap px-4 py-2 rounded-full font-mono text-xs font-semibold text-[var(--color-text-muted)]"
+                  className="whitespace-nowrap px-4 py-2 rounded-full font-mono text-xs font-bold text-[var(--color-primary)]"
                   style={{
                     background: 'var(--color-surface)',
-                    border: '1.5px solid var(--color-border)',
-                    boxShadow: 'var(--clay-sm)',
+                    border: '1.5px solid var(--color-primary)',
+                    boxShadow: '0 6px 20px rgba(108, 99, 255, 0.3), var(--clay-sm)',
                   }}
                 >
-                  🏛️ Govt · SaaS · Freelance
+                  Govt · SaaS · Freelance
                 </span>
               </motion.div>
             </div>

@@ -187,7 +187,7 @@ export default function Projects() {
       aria-label="Projects"
     >
       <div
-        className="blob w-80 h-80 -bottom-10 -right-10 opacity-10 dark:opacity-20 animate-blob-float"
+        className="blob w-80 h-80 -bottom-10 -right-10 opacity-10 dark:opacity-20"
         style={{ background: '#ffd93d' }}
       />
 

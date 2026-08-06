@@ -12,7 +12,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section-padding relative overflow-hidden" aria-label="Skills">
       <div
-        className="blob w-96 h-96 -bottom-20 -left-20 opacity-10 dark:opacity-20 animate-blob-float"
+        className="blob w-96 h-96 -bottom-20 -left-20 opacity-10 dark:opacity-20"
         style={{ background: '#6c63ff' }}
       />
 

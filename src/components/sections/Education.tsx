@@ -17,7 +17,7 @@ export default function Education() {
       aria-label="Education and certifications"
     >
       <div
-        className="blob w-72 h-72 -bottom-10 -left-10 opacity-10 dark:opacity-20 animate-blob-float-b"
+        className="blob w-72 h-72 -bottom-10 -left-10 opacity-10 dark:opacity-20"
         style={{ background: '#4ecdc4' }}
       />
 

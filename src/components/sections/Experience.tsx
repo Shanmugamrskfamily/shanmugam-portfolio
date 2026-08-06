@@ -17,7 +17,7 @@ export default function Experience() {
       aria-label="Work experience"
     >
       <div
-        className="blob w-96 h-96 -top-20 -right-20 opacity-10 dark:opacity-20 animate-blob-float-b"
+        className="blob w-96 h-96 -top-20 -right-20 opacity-10 dark:opacity-20"
         style={{ background: '#ff6b6b' }}
       />
 

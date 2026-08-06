@@ -24,11 +24,11 @@ export default function Contact() {
   return (
     <section id="contact" className="section-padding relative overflow-hidden" aria-label="Contact">
       <div
-        className="blob w-96 h-96 -top-10 -left-20 opacity-10 dark:opacity-20 animate-blob-float"
+        className="blob w-96 h-96 -top-10 -left-20 opacity-10 dark:opacity-20"
         style={{ background: '#6c63ff' }}
       />
       <div
-        className="blob w-72 h-72 bottom-0 -right-10 opacity-10 dark:opacity-20 animate-blob-float-b"
+        className="blob w-72 h-72 bottom-0 -right-10 opacity-10 dark:opacity-20"
         style={{ background: '#ff6b6b' }}
       />
 

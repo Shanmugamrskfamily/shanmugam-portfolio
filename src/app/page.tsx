@@ -10,6 +10,7 @@ import Education from '@/components/sections/Education';
 import Contact from '@/components/sections/Contact';
 import ScrollToTop from '@/components/ScrollToTop';
 import ScrollProgress from '@/components/ui/ScrollProgress';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 export const metadata: Metadata = {
   title: 'Shanmugam R | Frontend Developer — React.js & Next.js',
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <>
       <ScrollProgress />
+      <ScrollAnimations />
       <Navbar />
       <main id="main-content">
         <Hero />
