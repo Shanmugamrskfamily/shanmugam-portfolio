@@ -17,7 +17,7 @@ export const personal = {
   location: 'Chennai, Tamil Nadu, India',
   email: 'shanmugamrskfamily@gmail.com',
   phone: '+91 78453 71892',
-  availability: 'Immediate joiner — open to full-time roles in Chennai',
+  availability: 'Actively interviewing — Frontend/Full-Stack roles in Chennai (on-site or hybrid)',
   resumeUrl: 'https://drive.google.com/file/d/10_yM23wxxbtHvaIPm3TZSf7gfBjVNuxU/view?usp=sharing',
   resumeDownloadUrl:
     'https://drive.google.com/uc?export=download&id=10_yM23wxxbtHvaIPm3TZSf7gfBjVNuxU',
@@ -31,7 +31,7 @@ export const social = {
 
 export const about = {
   summary:
-    "Frontend Developer with 2+ years of production experience building secure, responsive, and scalable web applications using React.js, Next.js, and Angular. I've shipped government-scale job portals for the Government of Telangana (DEET) and SaaS recruitment products (Workruit), and led the migration of a legacy AngularJS codebase to a modern Next.js architecture. I've since expanded into full-stack delivery — solo-designing, building, securing, and deploying a complete Next.js/Express production platform for a freelance client, going beyond my day-job's frontend-only scope into backend architecture, authentication, and DevOps. My background is a little different — I spent six years as a team leader and Safety Spoke at Michelin India before making a deliberate switch into software development. That experience gave me ownership, process discipline, and a structured approach to problem-solving that I bring into every engineering role. I'm proficient in functional programming principles, OOP patterns, code review practices, REST API integration, state management, UI performance optimization, and web security (XSS, CSP, JWT/RBAC, encryption). Currently deepening my TypeScript skills.",
+    "Frontend Developer with 2+ years of experience turning complex requirements into clean, responsive, production-ready web applications. My path into tech is a little different — I spent six years at Michelin leading a production team and owning safety and quality on the shop floor before making a deliberate switch into software development. That background gave me discipline, ownership, and a methodical way of solving problems, which I've brought into engineering. At Storytech, I built and shipped products used at real scale, including DEET (a government job portal for Telangana) and Workruit (a recruitment SaaS). I've since taken on full-stack work as well — as a freelance project for RS Technologies, I independently designed, built, secured, and deployed a complete Next.js/Express platform, including JWT/RBAC, AES-256 encryption, and an internal admin CRM, pushing well beyond my day-job's frontend scope into real backend architecture and DevOps. I work primarily with React.js, Next.js, Angular, JavaScript, and Tailwind CSS, with a strong focus on REST API integration, state management, UI performance, and web security. I'm currently deepening my Node.js and backend skills further.",
   highlights: [
     '2+ years of production experience with React.js and Next.js',
     'Lead developer for all 6 frontend projects at Storytech (DEET suite & Workruit)',
@@ -49,7 +49,11 @@ export const about = {
     { label: 'Govt Applications', value: '2' },
     { label: 'Prior Career (Yrs)', value: '6' },
   ],
-  currentlyLearning: ['TypeScript (advanced patterns)', 'Data Structures & Algorithms'],
+  currentlyLearning: [
+    'Node.js/backend depth',
+    'TypeScript (advanced patterns)',
+    'DSA (data structures & algorithms)',
+  ],
 };
 
 export const languages = [
@@ -114,8 +118,8 @@ export const experiences: Experience[] = [
     company: 'RS Technologies',
     location: 'Chrompet, Chennai, India (Freelance/Remote)',
     role: 'Full-Stack Developer (Freelance)',
-    start: '2026',
-    end: '2026',
+    start: 'June 2026',
+    end: 'July 2026',
     type: 'Freelance',
     responsibilities: [
       'Solo-designed, built, secured, and deployed a complete production platform for a CCTV/security-systems business — migrating them off legacy WordPress (Bluehost) to a custom Next.js frontend + Express backend, both hosted on Vercel',
@@ -183,14 +187,13 @@ export const experiences: Experience[] = [
   {
     company: 'Michelin India Pvt Ltd',
     location: 'Thiruvallur, Tamil Nadu, India',
-    role: 'Operating Engineer L1',
+    role: 'Operations Team Leader (L1)',
     start: 'August 2017',
     end: 'May 2023',
     type: 'Full-time',
     responsibilities: [
-      'Led a 3-member team operating a rubber extruder line as planner, dimensions handler, and team leader across multiple machines',
-      'Served as Safety Spoke — conducted shop-floor audits, incident reporting, and problem-solving; maintained green indicators across Safety, Cost, Quality, and Delivery metrics',
-      'Promoted from Team Member Production to Operating Engineer L1 in April 2022',
+      'Led a 3-member machine team as planner, dimensions handler, and team leader; promoted from Team Member to L1 in 2022.',
+      'Served as Safety Spoke — conducted shop-floor audits, incident reporting, and maintained green performance indicators across Safety, Cost, Quality, and Delivery.',
     ],
     tech: [],
   },
