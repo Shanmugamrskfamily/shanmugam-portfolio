@@ -42,8 +42,12 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <p className="text-[var(--color-text-muted)] leading-relaxed text-base lg:text-lg mb-6">
+            <p className="text-[var(--color-text-muted)] leading-relaxed text-base lg:text-lg mb-4">
               {about.summary}
+            </p>
+
+            <p className="text-[var(--color-text-muted)] leading-relaxed text-base mb-6">
+              {about.longStory}
             </p>
 
             {/* Currently learning */}

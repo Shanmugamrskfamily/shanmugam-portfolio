@@ -120,14 +120,14 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    {exp.lead_developer && (
+                    {exp.products_owned && (
                       <div className="mt-3 flex items-start gap-2 flex-wrap p-3 rounded-2xl bg-[var(--color-bg)] border border-[var(--color-border)]">
                         <Star size={13} className="text-[var(--color-accent)] shrink-0 mt-0.5" />
                         <span className="text-xs text-[var(--color-text-muted)]">
                           <span className="font-bold text-[var(--color-text)] mr-1">
-                            Lead Developer:
+                            Products Owned:
                           </span>
-                          {exp.lead_developer.join(' · ')}
+                          {exp.products_owned.join(' · ')}
                         </span>
                       </div>
                     )}

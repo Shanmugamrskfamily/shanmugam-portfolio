@@ -13,7 +13,7 @@ import ScrollProgress from '@/components/ui/ScrollProgress';
 import ScrollAnimations from '@/components/ScrollAnimations';
 
 export const metadata: Metadata = {
-  title: 'Shanmugam R | Frontend Developer — React.js & Next.js',
+  title: 'Shanmugam R | Full-Stack Developer — React.js, Next.js & Node.js',
 };
 
 export default function Home() {

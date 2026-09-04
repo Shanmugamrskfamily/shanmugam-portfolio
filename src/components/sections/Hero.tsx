@@ -10,9 +10,9 @@ import HeroSceneWrapper from '@/components/three/HeroSceneWrapper';
 import { useMagneticHover } from '@/hooks/useMagneticHover';
 
 const ROLES = [
-  'Frontend Developer',
   'Full-Stack Developer',
   'React & Next.js Engineer',
+  'Node.js & Express Developer',
   'Production App Builder',
 ];
 
@@ -218,8 +218,8 @@ export default function Hero() {
                     '0 8px 24px rgba(108, 99, 255, 0.45), inset 0 1px 0 rgba(255,255,255,0.3)',
                 }}
               >
-                <p className="text-lg font-display font-black leading-none">7</p>
-                <p className="font-mono text-[10px] opacity-90 mt-0.5">Live Apps</p>
+                <p className="text-lg font-display font-black leading-none">6</p>
+                <p className="font-mono text-[10px] opacity-90 mt-0.5">Products</p>
               </motion.div>
 
               {/* Floating stat: bottom-left */}
@@ -234,7 +234,7 @@ export default function Hero() {
                     '0 8px 24px rgba(255, 107, 107, 0.45), inset 0 1px 0 rgba(255,255,255,0.3)',
                 }}
               >
-                <p className="text-lg font-display font-black leading-none">2+</p>
+                <p className="text-lg font-display font-black leading-none">2.5+</p>
                 <p className="font-mono text-[10px] opacity-90 mt-0.5">Yrs Exp</p>
               </motion.div>
 
@@ -257,7 +257,7 @@ export default function Hero() {
                 >
                   <Image
                     src="/images/profile.png"
-                    alt="Shanmugam R — Frontend Developer"
+                    alt="Shanmugam R — Full-Stack Developer"
                     fill
                     className="object-cover object-top"
                     priority

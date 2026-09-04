@@ -5,7 +5,7 @@ export interface Experience {
   start: string;
   end: string;
   type: string;
-  lead_developer?: string[];
+  products_owned?: string[];
   responsibilities: string[];
   tech: string[];
 }

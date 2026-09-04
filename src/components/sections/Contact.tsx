@@ -41,7 +41,7 @@ export default function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Let's work together"
-            subtitle="I'm actively looking for full-time frontend roles in Chennai. Immediate joiner. Let's connect."
+            subtitle="I'm looking for full-stack and frontend roles — Chennai (on-site or hybrid), Bangalore, or remote. Immediate joiner. Let's connect."
           />
         </motion.div>
 

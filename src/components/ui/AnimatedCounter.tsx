@@ -9,8 +9,13 @@ interface Props {
 }
 
 export default function AnimatedCounter({ value, inView, duration = 1200 }: Props) {
-  const num = parseInt(value.replace(/\D/g, ''), 10) || 0;
-  const suffix = value.replace(/\d/g, '');
+  // Split a value like "2.5+" into its number (2.5) and trailing suffix ("+"),
+  // keeping any decimal places so fractional stats animate correctly.
+  const match = value.match(/^([\d.]+)(.*)$/);
+  const num = match ? parseFloat(match[1]) || 0 : 0;
+  const suffix = match ? match[2] : value;
+  const decimals = match?.[1].includes('.') ? match[1].split('.')[1].length : 0;
+
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -20,15 +25,18 @@ export default function AnimatedCounter({ value, inView, duration = 1200 }: Prop
     const id = setInterval(() => {
       frame++;
       const ease = 1 - Math.pow(1 - frame / totalFrames, 3);
-      setCount(Math.round(ease * num));
-      if (frame >= totalFrames) clearInterval(id);
+      setCount(ease * num);
+      if (frame >= totalFrames) {
+        setCount(num);
+        clearInterval(id);
+      }
     }, 16);
     return () => clearInterval(id);
   }, [inView, num, duration]);
 
   return (
     <>
-      {count}
+      {count.toFixed(decimals)}
       {suffix}
     </>
   );
