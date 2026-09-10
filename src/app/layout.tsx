@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: '%s | Shanmugam R',
   },
   description:
-    'Shanmugam R — Full-Stack Developer with 2.5+ years of production experience in React.js, Next.js, TypeScript, Node.js, Express & MongoDB. Built government-scale job portals for the Government of Telangana (DEET), SaaS products (Workruit), and a solo full-stack platform with JWT/RBAC and AES-256 encrypted APIs. Immediate joiner. Based in Chennai, India.',
+    'Shanmugam R — Full-Stack Developer with 2.5+ years of production experience in React.js, Next.js, TypeScript, Node.js, Express & MongoDB. Built government-scale job portals for the Government of Telangana (DEET), SaaS products (Workruit), and a solo full-stack platform with JWT/RBAC and AES-256 encrypted APIs. Open to full-time roles in Chennai, Bangalore or Hyderabad — on-site, hybrid, or remote. Immediate joiner.',
   keywords: [
     'Shanmugam R',
     'Shanmugam R portfolio',
@@ -59,7 +59,13 @@ export const metadata: Metadata = {
     'hire full stack developer Chennai',
     'available full stack developer India',
     'full stack developer Bangalore',
+    'full stack developer Hyderabad',
+    'frontend developer Bangalore',
+    'frontend developer Hyderabad',
+    'React developer Bangalore',
+    'React developer Hyderabad',
     'remote full stack developer India',
+    'immediate joiner full stack developer',
     'portfolio website developer',
   ],
   authors: [{ name: 'Shanmugam R', url: baseUrl }],
@@ -84,7 +90,7 @@ export const metadata: Metadata = {
     siteName: 'Shanmugam R — Full-Stack Developer Portfolio',
     title: 'Shanmugam R | Full-Stack Developer — React.js, Next.js & Node.js | Chennai',
     description:
-      'Full-Stack Developer with 2.5+ years shipping production apps — Government of Telangana DEET job portal, Workruit SaaS, and a solo Next.js + Express platform. React, Next.js, TypeScript, Node.js, MongoDB. Chennai. Immediate joiner.',
+      'Full-Stack Developer with 2.5+ years shipping production apps — Government of Telangana DEET job portal, Workruit SaaS, and a solo Next.js + Express platform. React, Next.js, TypeScript, Node.js, MongoDB. Open to Chennai, Bangalore or Hyderabad. Immediate joiner.',
     images: [
       {
         url: `${baseUrl}/images/profile.png`,

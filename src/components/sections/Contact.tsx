@@ -2,9 +2,9 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Download, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Download, Send, Laptop } from 'lucide-react';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { personal, social } from '@/data/portfolio';
+import { personal, social, openToWork } from '@/data/portfolio';
 
 export default function Contact() {
   const ref = useRef(null);
@@ -41,7 +41,7 @@ export default function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Let's work together"
-            subtitle="I'm looking for full-stack and frontend roles — Chennai (on-site or hybrid), Bangalore, or remote. Immediate joiner. Let's connect."
+            subtitle="I'm looking for full-time Full-Stack or Frontend roles in Chennai, Bangalore or Hyderabad — on-site, hybrid, or remote. Immediate joiner. Let's connect."
           />
         </motion.div>
 
@@ -68,10 +68,41 @@ export default function Contact() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
                 </span>
                 <span className="text-xs font-bold text-white/75 uppercase tracking-widest">
-                  Availability
+                  Open to Work
                 </span>
               </div>
-              <p className="font-display font-black text-lg">{personal.availability}</p>
+
+              <p className="font-display font-black text-lg leading-snug">
+                {openToWork.roles.join(' / ')} roles
+              </p>
+              <p className="text-sm font-semibold text-white/85 mt-0.5">{personal.availability}</p>
+
+              <div className="mt-3.5 space-y-2">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <MapPin size={13} className="text-white/70 shrink-0" aria-hidden="true" />
+                  <span className="sr-only">Locations:</span>
+                  {openToWork.locations.map((loc) => (
+                    <span
+                      key={loc}
+                      className="px-2.5 py-0.5 rounded-full bg-white/15 text-[11px] font-bold"
+                    >
+                      {loc}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <Laptop size={13} className="text-white/70 shrink-0" aria-hidden="true" />
+                  <span className="sr-only">Work modes:</span>
+                  {openToWork.workModes.map((mode) => (
+                    <span
+                      key={mode}
+                      className="px-2.5 py-0.5 rounded-full bg-white/15 text-[11px] font-bold"
+                    >
+                      {mode}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Contact items */}

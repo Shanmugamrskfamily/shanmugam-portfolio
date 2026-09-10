@@ -12,7 +12,7 @@ export default function JsonLd() {
     familyName: 'R',
     jobTitle: 'Full-Stack Developer',
     description:
-      'Full-Stack Developer with 2.5+ years of production experience building secure, scalable web applications using React.js, Next.js, TypeScript, Node.js, Express, and MongoDB. Project owner for the Government of Telangana DEET job portal and sole developer of a full-stack platform with JWT/RBAC and AES-256 encrypted APIs. Based in Chennai, India.',
+      'Full-Stack Developer with 2.5+ years of production experience building secure, scalable web applications using React.js, Next.js, TypeScript, Node.js, Express, and MongoDB. Project owner for the Government of Telangana DEET job portal and sole developer of a full-stack platform with JWT/RBAC and AES-256 encrypted APIs. Based in Chennai, India; open to full-time roles in Chennai, Bangalore, or Hyderabad, on-site, hybrid, or remote.',
     url: BASE_URL,
     email: personal.email,
     telephone: personal.phone,
@@ -86,10 +86,11 @@ export default function JsonLd() {
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Full-Stack Developer',
-      occupationLocation: {
-        '@type': 'City',
-        name: 'Chennai',
-      },
+      occupationLocation: [
+        { '@type': 'City', name: 'Chennai' },
+        { '@type': 'City', name: 'Bangalore' },
+        { '@type': 'City', name: 'Hyderabad' },
+      ],
       skills:
         'React.js, Next.js, TypeScript, Node.js, Express.js, MongoDB, Tailwind CSS, Redux, REST API Design, JWT/RBAC',
     },

@@ -18,10 +18,21 @@ export const personal = {
   location: 'Chennai, Tamil Nadu, India',
   email: 'shanmugamrskfamily@gmail.com',
   phone: '+91 78453 71892',
-  availability: 'Immediate joiner — Chennai (on-site or hybrid), Bangalore, or Remote',
-  resumeUrl: 'https://drive.google.com/file/d/10BcwbqlW1abM0HA0ricCPd0O3B40LlSP/view?usp=sharing',
+  availability: 'Full-time · Immediate joiner',
+  resumeUrl: 'https://drive.google.com/file/d/18a3H8pMfgVYnrKy7hRfBeCrYmM5wZBkW/view?usp=sharing',
   resumeDownloadUrl:
-    'https://drive.google.com/uc?export=download&id=10BcwbqlW1abM0HA0ricCPd0O3B40LlSP',
+    'https://drive.google.com/uc?export=download&id=18a3H8pMfgVYnrKy7hRfBeCrYmM5wZBkW',
+};
+
+export const openToWork = {
+  status: true,
+  roles: ['Full-Stack Developer', 'Frontend Developer'],
+  locations: ['Chennai', 'Bangalore', 'Hyderabad'],
+  workModes: ['On-site', 'Hybrid', 'Remote'],
+  employmentType: 'Full-time',
+  noticePeriod: 'Immediate joiner',
+  summary:
+    'Open to Full-Stack / Frontend Developer roles — Chennai, Bangalore, Hyderabad · On-site / Hybrid / Remote · Full-time · Immediate joiner',
 };
 
 export const social = {
@@ -416,6 +427,7 @@ export const skillGroups: SkillGroup[] = [
       'HTML5',
       'CSS3',
       'Redux',
+      'Redux Toolkit',
       'Context API',
       'Tailwind CSS',
       'Bootstrap',
@@ -496,6 +508,7 @@ export const skillGroups: SkillGroup[] = [
       'Vite',
       'Chrome DevTools',
       'VS Code',
+      'CI/CD basics (GitHub Actions)',
       'Technical SEO',
       'Google Analytics 4',
     ],
@@ -522,6 +535,8 @@ export const skillGroups: SkillGroup[] = [
       'Technical Documentation',
       'Cross-Functional Collaboration',
       'Asana',
+      'Jira',
+      'Claude Code (AI-assisted development)',
       'Release documentation',
     ],
   },
