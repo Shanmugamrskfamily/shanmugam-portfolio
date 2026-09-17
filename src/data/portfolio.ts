@@ -19,9 +19,9 @@ export const personal = {
   email: 'shanmugamrskfamily@gmail.com',
   phone: '+91 78453 71892',
   availability: 'Full-time · Immediate joiner',
-  resumeUrl: 'https://drive.google.com/file/d/18a3H8pMfgVYnrKy7hRfBeCrYmM5wZBkW/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/1Ay-r-KUQ2zZntnp11n14FgKxYgoBi0ux/view?usp=sharing',
   resumeDownloadUrl:
-    'https://drive.google.com/uc?export=download&id=18a3H8pMfgVYnrKy7hRfBeCrYmM5wZBkW',
+    'https://drive.google.com/uc?export=download&id=1Ay-r-KUQ2zZntnp11n14FgKxYgoBi0ux',
 };
 
 export const openToWork = {
