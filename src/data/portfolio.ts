@@ -32,7 +32,7 @@ export const person = {
   location: 'Chennai, Tamil Nadu, India',
   email: 'shanmugamrskfamily@gmail.com',
   phone: '+91 78453 71892',
-  resumeUrl: 'https://drive.google.com/file/d/1OyTjiWBmbqbmVzNReCG0n_-d61jAyivb/view',
+  resumeUrl: 'https://drive.google.com/file/d/1OyTjiWBmbqbmVzNReCG0n_-d61jAyivb/view?usp=sharing',
   linkedin: 'https://www.linkedin.com/in/shanmugamrskfamily/',
   github: 'https://github.com/Shanmugamrskfamily',
   hackerrank: 'https://www.hackerrank.com/profile/shanmugamr',

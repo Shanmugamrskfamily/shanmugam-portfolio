@@ -1,8 +1,8 @@
 # Shanmugam R — Portfolio
 
-> **Live:** [shanmugam-portfolio.vercel.app](https://shanmugam-portfolio.vercel.app)
+> **Live:** [shanmugam-portfolio.vercel.app](https://shanmugam-portfolio.vercel.app) · **Résumé:** [View on Google Drive](https://drive.google.com/file/d/1OyTjiWBmbqbmVzNReCG0n_-d61jAyivb/view?usp=sharing)
 
-Portfolio of **Shanmugam R**, a frontend-first full-stack developer in Chennai (React.js, Next.js, Node.js).
+Portfolio of **Shanmugam R**, a frontend-first full-stack developer in Chennai with 2.5+ years of production experience in React.js, Next.js and Node.js. Open to full-time roles in Chennai, Bangalore or Hyderabad, on-site, hybrid or remote. Immediate joiner.
 
 The site is designed as an **engineering drawing**. In light mode it reads as drafting film, and in dark mode as a blueprint. Work is shown as numbered figures with callout balloons, a parts list, and a title-block footer. It is built to be tried, not just read: three interactive 3D figures, two live demos of production patterns, a command palette and a capability filter.
 
@@ -18,7 +18,7 @@ The site is designed as an **engineering drawing**. In light mode it reads as dr
 
 | Area      | Choice                                                              |
 | --------- | ------------------------------------------------------------------- |
-| Framework | Next.js 15 (App Router, static export of the home page)             |
+| Framework | Next.js 15 (App Router, home page prerendered as static HTML)       |
 | UI        | React 19, TypeScript 5                                              |
 | Styling   | CSS Modules plus design tokens in `src/app/globals.css`             |
 | 3D        | Three.js through React Three Fiber 9 and drei 10                    |
@@ -106,4 +106,5 @@ Work happens on `dev`, where Vercel builds a preview for every push. Merging to 
 [LinkedIn](https://www.linkedin.com/in/shanmugamrskfamily/) ·
 [GitHub](https://github.com/Shanmugamrskfamily) ·
 [HackerRank](https://www.hackerrank.com/profile/shanmugamr) ·
+[Résumé](https://drive.google.com/file/d/1OyTjiWBmbqbmVzNReCG0n_-d61jAyivb/view?usp=sharing) ·
 [Email](mailto:shanmugamrskfamily@gmail.com)
