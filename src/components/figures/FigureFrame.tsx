@@ -6,23 +6,25 @@ import {
   useEffect,
   useMemo,
   useRef,
+  useState,
   useSyncExternalStore,
   type ReactNode,
 } from 'react';
 import type { LegendEntry } from '@/types';
 import { createFigureStore, type FigureStore } from './store';
 import { clamp } from './math';
-import { useFigureMode, type FigureMode } from './useFigureMode';
+import { useCoarsePointer, useFigureMode, type FigureMode } from './useFigureMode';
 import styles from './figure.module.css';
 
 export type SceneKind = 'stack' | 'pipeline' | 'tree';
 
 const Stage3D = dynamic(() => import('./Stage3D'), { ssr: false });
 
-export function useFigure(orbit: { yaw: number; pitch: number }) {
+/** @param onPhone allow live 3D for this figure on capable phones, not only on desktop */
+export function useFigure(orbit: { yaw: number; pitch: number }, onPhone = false) {
   const store = useMemo(() => createFigureStore(orbit), []); // eslint-disable-line react-hooks/exhaustive-deps
   const snap = useSyncExternalStore(store.subscribe, store.get, store.get);
-  const mode = useFigureMode();
+  const mode = useFigureMode(onPhone);
   return { store, snap, mode };
 }
 
@@ -62,10 +64,32 @@ export function FigureFrame({
   const drag = useRef({ down: false, x: 0, y: 0 });
   const live3d = mode === '3d';
   const active = snap.hi >= 0 ? snap.hi : snap.hover;
+  // On touch screens the figure must be tapped before a drag turns it, so swipes keep scrolling the page
+  const coarse = useCoarsePointer();
+  const needsArm = live3d && coarse;
+  const [armed, setArmed] = useState(false);
 
   useEffect(() => {
     store.live.stage = stageRef.current;
   }, [store]);
+
+  // Disarm when the visitor taps elsewhere or scrolls the figure out of view
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!armed || !stage) return;
+    const onDocDown = (e: PointerEvent) => {
+      if (!stage.contains(e.target as Node)) setArmed(false);
+    };
+    const io = new IntersectionObserver(([en]) => !en.isIntersecting && setArmed(false), {
+      threshold: 0.2,
+    });
+    document.addEventListener('pointerdown', onDocDown);
+    io.observe(stage);
+    return () => {
+      document.removeEventListener('pointerdown', onDocDown);
+      io.disconnect();
+    };
+  }, [armed]);
   const svgRef = useCallback(
     (el: SVGSVGElement | null) => {
       store.live.svg = el;
@@ -74,7 +98,7 @@ export function FigureFrame({
   );
 
   const onDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!live3d) return;
+    if (!live3d || (needsArm && !armed && e.pointerType !== 'mouse')) return;
     drag.current = { down: true, x: e.clientX, y: e.clientY };
     store.live.dragging = true;
     store.live.touched = performance.now();
@@ -113,9 +137,12 @@ export function FigureFrame({
     <figure className={styles.fig}>
       <div
         ref={stageRef}
-        className={`${styles.stage} ${wide ? styles.wide : ''} ${live3d ? styles.live : ''}`}
+        className={`${styles.stage} ${wide ? styles.wide : ''} ${live3d ? styles.live : ''} ${
+          needsArm ? (armed ? styles.armed : styles.idle) : ''
+        }`}
         role="img"
         aria-label={label}
+        onClick={() => needsArm && !armed && setArmed(true)}
         onPointerDown={onDown}
         onPointerMove={onMove}
         onPointerUp={onUp}
@@ -140,6 +167,11 @@ export function FigureFrame({
               </g>
             ))}
           </svg>
+        )}
+        {needsArm && snap.ready && (
+          <span className={styles.touchHint} aria-hidden="true">
+            {armed ? 'Drag to turn · tap outside to finish' : 'Tap to turn in 3D'}
+          </span>
         )}
         <span className={`${styles.reg} ${styles.tl}`} />
         <span className={`${styles.reg} ${styles.tr}`} />

@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import { pipelineStages, stackLayers, treeLevels } from '@/data/portfolio';
 import { FigureFrame, useFigure } from './FigureFrame';
 import { PipelineStill, StackStill, TreeStill } from './Stills';
+import { useCoarsePointer } from './useFigureMode';
 import styles from './figure.module.css';
 
-/* ---------- Fig. 1 · exploded stack ---------- */
+/* ---------- Fig. 1 · exploded stack (the one figure that also runs live on phones) ---------- */
 export function StackFigure() {
-  const { store, snap, mode } = useFigure({ yaw: 0.72, pitch: 0.44 });
+  const { store, snap, mode } = useFigure({ yaw: 0.72, pitch: 0.44 }, true);
+  const coarse = useCoarsePointer();
   const [sep, setSep] = useState(0);
   const touched = useRef(false);
   const holder = useRef<HTMLDivElement>(null);
@@ -74,7 +76,9 @@ export function StackFigure() {
                 />
                 Exploded
               </label>
-              <span className={styles.hint}>Drag to turn · hover a layer</span>
+              <span className={styles.hint}>
+                {coarse ? 'Tap the drawing, then drag to turn' : 'Drag to turn · hover a layer'}
+              </span>
             </div>
           ) : null
         }

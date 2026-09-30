@@ -22,6 +22,8 @@ function ClearEachFrame() {
  * so the browser holds a single GPU context however many figures there are.
  */
 export default function FigureCanvas() {
+  // Touch devices render at up to 1.5x pixel density to save battery and keep frames smooth
+  const maxDpr = matchMedia('(pointer: coarse)').matches ? 1.5 : 2;
   return (
     <Canvas
       style={{
@@ -32,7 +34,7 @@ export default function FigureCanvas() {
         pointerEvents: 'none',
         zIndex: 0,
       }}
-      dpr={[1, 2]}
+      dpr={[1, maxDpr]}
       gl={{ antialias: true, alpha: true }}
       aria-hidden="true"
     >

@@ -23,6 +23,37 @@
 .live:active {
   cursor: grabbing;
 }
+/* Touch: until tapped, the figure never captures a gesture, so swipes scroll the page */
+.idle {
+  touch-action: auto;
+  cursor: pointer;
+}
+.armed {
+  touch-action: none;
+  outline: 2px solid var(--callout);
+  outline-offset: 3px;
+}
+.touchHint {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--line);
+  font: 600 11.5px/1 var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.armed .touchHint {
+  border-color: var(--callout);
+  color: var(--callout);
+}
+
 .view,
 .overlay,
 .still {
