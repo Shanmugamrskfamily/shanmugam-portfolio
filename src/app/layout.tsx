@@ -1,135 +1,109 @@
-import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Nunito } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { Archivo, IBM_Plex_Mono, Onest } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import JsonLd from '@/components/JsonLd';
+import { person, site } from '@/data/portfolio';
 import './globals.css';
 
-const inter = Inter({
+// Display: Archivo with its width axis, for engineering-drawing lettering
+const archivo = Archivo({
   subsets: ['latin'],
-  variable: '--font-inter',
+  axes: ['wdth'],
+  variable: '--font-archivo',
   display: 'swap',
 });
-
-const jetbrainsMono = JetBrains_Mono({
+// Body: Onest
+const onest = Onest({ subsets: ['latin'], variable: '--font-onest', display: 'swap' });
+// Labels, data and code: IBM Plex Mono
+const plexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  variable: '--font-mono',
+  weight: ['400', '500', '600'],
+  variable: '--font-plex-mono',
   display: 'swap',
 });
-
-const nunito = Nunito({
-  subsets: ['latin'],
-  variable: '--font-display',
-  weight: ['600', '700', '800', '900'],
-  display: 'swap',
-});
-
-const baseUrl = 'https://shanmugam-portfolio.vercel.app';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
-  title: {
-    default: 'Shanmugam R | Full-Stack Developer — React.js, Next.js & Node.js | Chennai',
-    template: '%s | Shanmugam R',
-  },
-  description:
-    'Shanmugam R — Full-Stack Developer with 2.5+ years of production experience in React.js, Next.js, TypeScript, Node.js, Express & MongoDB. Built government-scale job portals for the Government of Telangana (DEET), SaaS products (Workruit), and a solo full-stack platform with JWT/RBAC and AES-256 encrypted APIs. Open to full-time roles in Chennai, Bangalore or Hyderabad — on-site, hybrid, or remote. Immediate joiner.',
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: `%s · ${person.name}` },
+  description: site.description,
   keywords: [
     'Shanmugam R',
-    'Shanmugam R portfolio',
-    'Shanmugam full stack developer',
-    'Shanmugam React developer Chennai',
-    'Full Stack Developer Chennai',
-    'Frontend Developer Chennai',
-    'React.js Developer Chennai',
-    'Next.js Developer India',
-    'Node.js Developer Chennai',
-    'Express.js Developer India',
-    'MongoDB Developer Chennai',
-    'JavaScript Developer Chennai',
-    'TypeScript Developer India',
-    'Web Developer Chennai Tamil Nadu',
-    'MERN stack developer Chennai',
-    'React.js developer',
-    'Next.js developer',
-    'TypeScript developer',
-    'Tailwind CSS developer',
-    'DEET Telangana developer',
-    'Government of Telangana job portal developer',
-    'Workruit developer',
-    'hire full stack developer Chennai',
-    'available full stack developer India',
+    'full stack developer Chennai',
+    'frontend developer Chennai',
+    'React developer Chennai',
+    'Next.js developer India',
+    'Node.js developer Chennai',
+    'MERN stack developer',
     'full stack developer Bangalore',
     'full stack developer Hyderabad',
-    'frontend developer Bangalore',
-    'frontend developer Hyderabad',
     'React developer Bangalore',
     'React developer Hyderabad',
     'remote full stack developer India',
-    'immediate joiner full stack developer',
-    'portfolio website developer',
+    'immediate joiner React developer',
+    'technical SEO developer',
+    'Vercel deployment',
+    'DEET Telangana job portal',
+    'Workruit',
   ],
-  authors: [{ name: 'Shanmugam R', url: baseUrl }],
-  creator: 'Shanmugam R',
-  publisher: 'Shanmugam R',
-  category: 'technology',
+  authors: [{ name: person.name, url: site.url }],
+  creator: person.name,
+  alternates: { canonical: '/' },
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
     },
   },
   openGraph: {
     type: 'profile',
     locale: 'en_IN',
-    url: baseUrl,
-    siteName: 'Shanmugam R — Full-Stack Developer Portfolio',
-    title: 'Shanmugam R | Full-Stack Developer — React.js, Next.js & Node.js | Chennai',
-    description:
-      'Full-Stack Developer with 2.5+ years shipping production apps — Government of Telangana DEET job portal, Workruit SaaS, and a solo Next.js + Express platform. React, Next.js, TypeScript, Node.js, MongoDB. Open to Chennai, Bangalore or Hyderabad. Immediate joiner.',
+    url: site.url,
+    siteName: `${person.name} · Portfolio`,
+    title: site.title,
+    description: site.description,
     images: [
       {
-        url: `${baseUrl}/images/profile.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Shanmugam R — Full-Stack Developer specialising in React.js, Next.js and Node.js, Chennai India',
-        type: 'image/png',
+        url: person.photo.src,
+        width: person.photo.width,
+        height: person.photo.height,
+        alt: person.name,
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Shanmugam R | Full-Stack Developer — React.js, Next.js & Node.js',
-    description:
-      'Full-Stack Developer with 2.5+ years in React.js, Next.js & Node.js. Built govt-scale DEET portal, Workruit SaaS & a solo full-stack platform. Chennai, India. Immediate joiner.',
-    images: [`${baseUrl}/images/profile.png`],
-    creator: '@shanmugamrskfamily',
+    card: 'summary',
+    title: site.title,
+    description: site.description,
+    images: [person.photo.src],
   },
-  alternates: { canonical: baseUrl },
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
-  },
+  icons: { icon: '/favicon.ico' },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#eef2f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b2447' },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable} ${nunito.variable}`}
+      className={`${archivo.variable} ${onest.variable} ${plexMono.variable}`}
     >
-      <body suppressHydrationWarning>
+      <body>
         <ThemeProvider
-          attribute="class"
+          attribute="data-theme"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={false}
+          disableTransitionOnChange
         >
           <JsonLd />
           {children}

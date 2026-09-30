@@ -1,14 +1,8 @@
 import type { MetadataRoute } from 'next';
-
-const BASE_URL = 'https://shanmugam-portfolio.vercel.app/';
+import { site } from '@/data/portfolio';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1.0,
-    },
+    { url: `${site.url}/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
   ];
 }

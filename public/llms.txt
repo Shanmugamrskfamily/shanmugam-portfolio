@@ -1,56 +1,49 @@
-# Shanmugam R — Frontend Developer Portfolio
+# Shanmugam R · Full-Stack Developer
 
-> Frontend Developer with 2+ years of production experience in React.js, Next.js, and TypeScript. Based in Chennai, India. Immediate joiner.
+> Frontend-first full-stack developer in Chennai, India, with 2.5+ years of production experience in React.js, Next.js, TypeScript, Node.js, Express and MongoDB. Handles deployment and SEO end to end. Open to full-time Full-Stack or Frontend Developer roles in Chennai, Bangalore or Hyderabad, on-site, hybrid or remote. Immediate joiner.
 
-## About
+## Summary
 
-Shanmugam R is a Frontend Developer specialising in React.js and Next.js. He has shipped government-scale web applications for the Government of Telangana and SaaS recruitment products. Before switching to software engineering, he spent 6 years as an Operations Team Leader and Safety Spoke at Michelin India, giving him strong ownership, process discipline, and structured problem-solving skills.
+- Sole frontend developer on six production products at Storytech, including two applications for the Government of Telangana.
+- Solo full-stack developer of rstechnologies.in: Next.js 16 and Express on Vercel, 4-role JWT/RBAC, an AES-256 encrypted API envelope, an admin CRM and 260+ statically generated pages.
+- Led the AngularJS to Next.js migration of the DEET job portal, now live on Next.js.
+- Gathered requirements directly from Telangana government officers for the DEET Job Fair and Skill Survey modules.
+
+## Experience
+
+- RS Technologies · Full-Stack Developer (Freelance) · Chennai · Jun–Jul 2026
+- Storytech · Junior Software Engineer · Hyderabad (remote) · Jun 2024 – May 2026
+- VeriTech Software IT Services · Web Developer Intern · Pune (remote) · Jan–Apr 2024
+- Senchola Technology Solutions · Frontend Developer Intern · Chennai (remote) · Sep–Dec 2023
+- Michelin India · Operating Engineer L1 · Thiruvallur · Aug 2017 – May 2023
+
+## Work
+
+- DEET, Government of Telangana job portal: https://deet.telangana.gov.in
+  Multi-role dashboards, interview scheduling, Firebase notifications, CSP and XSS hardening. Job Fair module (job-seeker and admin sides, live April 2026). Statewide Skill Survey with OTP-verified prefill and a five-step autosaving form. Admin panel with six user roles.
+- RS Technologies platform and admin CRM: https://rstechnologies.in/
+- Workruit B2B recruitment SaaS: https://app.workruit.com
+- Apex CRM (take-home assessment project): https://apex-crm-two-sigma.vercel.app
 
 ## Skills
 
-- Languages: JavaScript (ES6+), TypeScript, HTML5, CSS3
-- Frameworks: React.js, Next.js, Angular.js, Redux, Context API
-- Styling: Tailwind CSS, Bootstrap, Ant Design, Material UI
-- Tools: Git, AWS Amplify, AWS S3, Vercel, Firebase, Postman
-- Security: XSS prevention, Content Security Policy (CSP)
-- Other: REST APIs, Formik, Chart.js, ExcelJS, SEO, Google Analytics
-
-## Work Experience
-
-### Junior Software Engineer — Storytech Pvt Ltd (June 2024 – May 2026)
-- Lead developer for all 6 frontend projects — DEET suite (Web App, Admin Panel, Website, Migration) and Workruit (Master, Website)
-- Led migration of legacy AngularJS codebase to modern Next.js architecture
-- Built multi-role job portal for Government of Telangana serving jobseekers, employers, and consultancies
-- Delivered Workruit recruitment SaaS with role-based team access and interview workflows
-
-### Web Developer Intern — VeriTech Software IT Services (Jan 2024 – Apr 2024)
-- Built production-grade responsive web applications with React.js
-
-### Frontend Developer Intern — Senchola Technology Solutions (Sep 2023 – Dec 2023)
-- Developed scalable user interfaces with React.js and Bootstrap
-
-### Operating Engineer L1 — Michelin India Pvt Ltd (Aug 2017 – May 2023)
-- Led 3-member operations team; served as Safety Spoke
-
-## Projects
-
-- **DEET Government Job Portal** — Official job portal for Government of Telangana. Live at https://deet.telangana.gov.in/
-- **DEET Admin Panel** — Role-based admin dashboard for DEET portal. Live at https://deet.telangana.gov.in/
-- **DEET Public Website** — SEO-optimised static website with skill survey. Live at https://deet.telangana.gov.in/
-- **DEET Migration (AngularJS → Next.js)** — Full migration using Claude Code. In QA.
-- **Workruit Master** — SaaS recruitment platform. Live at https://app.workruit.com/
-- **Workruit Website** — Marketing site with portfolio builder. Live at https://www.workruit.com/
+- Frontend: React.js, Next.js (App Router, SSR, SSG), TypeScript, JavaScript, Redux Toolkit, Formik, Yup, Tailwind CSS, Ant Design, Material UI, Chart.js
+- Backend: Node.js, Express.js, REST API design, JWT, RBAC, Zod, bcrypt, rate limiting, AES-256
+- Data: MongoDB, Mongoose, MySQL
+- Deployment: Vercel, AWS Amplify, AWS S3, Netlify, DNS management, GitHub Actions
+- SEO and performance: Core Web Vitals, static generation, JSON-LD, Search Console, GA4
+- Quality: Jest, React Testing Library, ESLint, code review
 
 ## Education
 
-- B.Sc. Computer Science — University of Madras (2013–2016), 70%
-- Full Stack Development (MERN) Certificate — GUVI, IIT Madras incubated (2023)
+- B.Sc. Computer Science (Allied Physics & Mathematics), University of Madras, 2013–2016
+- Full Stack Development (MERN), GUVI (IIT Madras incubated), 2023
+- HackerRank Problem Solving badge: https://www.hackerrank.com/profile/shanmugamr
 
 ## Contact
 
 - Email: shanmugamrskfamily@gmail.com
 - Phone: +91 78453 71892
-- Location: Chennai, Tamil Nadu, India
 - LinkedIn: https://www.linkedin.com/in/shanmugamrskfamily/
 - GitHub: https://github.com/Shanmugamrskfamily
 - Portfolio: https://shanmugam-portfolio.vercel.app
