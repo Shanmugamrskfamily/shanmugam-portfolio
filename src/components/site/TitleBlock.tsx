@@ -1,3 +1,4 @@
+import BrandLogo from '@/components/ui/BrandLogo';
 import { person } from '@/data/portfolio';
 import styles from '../sections/sections.module.css';
 
@@ -6,6 +7,9 @@ export default function TitleBlock() {
   return (
     <footer className={styles.tbWrap}>
       <div className={styles.titleblock}>
+        <div className={styles.tbLogo}>
+          <BrandLogo size={84} label="SR, Shanmugam R, full stack" />
+        </div>
         <div>
           <small>Title</small>
           <span>

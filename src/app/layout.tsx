@@ -81,7 +81,14 @@ export const metadata: Metadata = {
     description: site.description,
     images: [person.photo.src],
   },
-  icons: { icon: '/favicon.ico' },
+  // SR mark: icon.svg switches light/dark with the OS; favicon.ico is the fallback
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export const viewport: Viewport = {

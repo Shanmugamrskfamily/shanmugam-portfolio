@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { navItems, person, RESUME_VIEW_URL } from '@/data/portfolio';
+import BrandLogo from '@/components/ui/BrandLogo';
 import { usePageUI } from './PageShell';
 import styles from '../sections/sections.module.css';
 
@@ -122,7 +123,7 @@ export default function Nav() {
     <header className={styles.nav} ref={menu.header}>
       <div className={styles.navIn}>
         <a className={styles.mark} href="#top" onClick={close}>
-          <i>SR</i>
+          <BrandLogo size={40} compact className={styles.markLogo} />
           <span className={styles.markName}>{person.name}</span>
         </a>
         <nav className={styles.links} aria-label="Sections">

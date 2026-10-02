@@ -23,6 +23,10 @@
   --ops: #6a3cdb;
   --seo: #a86a00;
   --logo-plate: #ffffff;
+  /* SR brand tile: radial ground, grid ink */
+  --logo-in: #ffffff;
+  --logo-out: #e2eaf3;
+  --logo-grid: rgb(31 79 143 / 0.12);
 
   --font-ui: var(--font-onest), system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-draw: var(--font-archivo), 'Arial Narrow', Arial, sans-serif;
@@ -51,6 +55,9 @@
     --be: #4fe0c8;
     --ops: #bfa4ff;
     --seo: #ffc75a;
+    --logo-in: #1e4274;
+    --logo-out: #0b2447;
+    --logo-grid: rgb(207 227 255 / 0.09);
     color-scheme: dark;
   }
 }
@@ -71,6 +78,9 @@
   --be: #4fe0c8;
   --ops: #bfa4ff;
   --seo: #ffc75a;
+  --logo-in: #1e4274;
+  --logo-out: #0b2447;
+  --logo-grid: rgb(207 227 255 / 0.09);
   color-scheme: dark;
 }
 

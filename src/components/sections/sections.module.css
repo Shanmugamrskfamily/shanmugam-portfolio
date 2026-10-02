@@ -28,14 +28,9 @@
   font-size: 17px;
   white-space: nowrap;
 }
-.mark i {
-  width: 28px;
-  height: 28px;
-  border: 1.5px solid var(--ink);
-  display: grid;
-  place-items: center;
-  font: 600 12px/1 var(--font-mono);
-  font-style: normal;
+.markLogo {
+  flex: none;
+  display: block;
 }
 .links {
   display: flex;
@@ -855,7 +850,7 @@
 }
 .titleblock {
   display: grid;
-  grid-template-columns: 2fr repeat(3, minmax(0, 1fr));
+  grid-template-columns: auto 2fr repeat(3, minmax(0, 1fr));
   border: 1.5px solid var(--ink);
   background: var(--surface);
 }
@@ -865,6 +860,10 @@
   display: grid;
   gap: 3px;
   min-width: 0;
+}
+.titleblock .tbLogo {
+  padding: 8px;
+  place-items: center;
 }
 .titleblock div:last-child {
   border-right: 0;
@@ -1023,13 +1022,18 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 2px;
   }
+  /* Logo cell spans both rows on the left */
   .titleblock {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: auto repeat(2, minmax(0, 1fr));
   }
-  .titleblock div:nth-child(2) {
+  .titleblock .tbLogo {
+    grid-row: span 2;
+  }
+  .titleblock div:nth-child(3) {
     border-right: 0;
   }
-  .titleblock div:nth-child(-n + 2) {
+  .titleblock div:nth-child(2),
+  .titleblock div:nth-child(3) {
     border-bottom: 1px solid var(--line);
   }
 }

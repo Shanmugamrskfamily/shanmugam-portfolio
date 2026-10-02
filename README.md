@@ -66,11 +66,13 @@ src/
 │   ├── demos/               # survey and one-offer demos
 │   ├── sections/            # Hero, Capabilities, Work, Deploy, Seo, Writing, About, Contact
 │   ├── site/                # Nav, PageShell (filter, toasts, reveals), CommandPalette, TitleBlock
-│   ├── ui/                  # LogoPlate, CopyButton
+│   ├── ui/                  # BrandLogo (SR mark, themed), LogoPlate, CopyButton
 │   └── JsonLd.tsx           # Person, WebSite and work structured data
 ├── data/portfolio.ts        # single source of truth for all content
 └── types/index.ts
 public/
+├── brand/                   # SR logo PNGs, light and dark (full logo and compact mark)
+├── icon.svg · favicon.ico · apple-touch-icon.png   # SR favicons; icon.svg follows light/dark
 ├── logos/                   # project and employer logos, used with permission
 ├── images/profile.png
 └── llms.txt                 # plain-text summary for AI assistants
