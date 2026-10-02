@@ -55,12 +55,45 @@ function useScrollSpy(ids: string[]) {
 }
 
 const SECTION_IDS = navItems.map((n) => n.href.slice(1));
+/** Matches the CSS breakpoint where the link row no longer fits. */
+const COMPACT = '(max-width: 1100px)';
+
+/** Section menu for phones and tablets: closes on Escape, an outside tap, picking a link, or widening the window. */
+function useMenu() {
+  const [open, setOpen] = useState(false);
+  const header = useRef<HTMLElement>(null);
+  const button = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      button.current?.focus();
+    };
+    const onDown = (e: PointerEvent) => {
+      if (!header.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const mq = matchMedia(COMPACT);
+    const onWide = () => !mq.matches && setOpen(false);
+    addEventListener('keydown', onKey);
+    addEventListener('pointerdown', onDown);
+    mq.addEventListener('change', onWide);
+    return () => {
+      removeEventListener('keydown', onKey);
+      removeEventListener('pointerdown', onDown);
+      mq.removeEventListener('change', onWide);
+    };
+  }, [open]);
+  return { open, setOpen, header, button };
+}
 
 export default function Nav() {
   const { openPalette } = usePageUI();
   const current = useScrollSpy(SECTION_IDS);
   const bar = useRef<HTMLSpanElement>(null);
   const mac = useMounted() && /Mac|iPhone|iPad/.test(navigator.userAgent);
+  const menu = useMenu();
+  const close = () => menu.setOpen(false);
 
   useEffect(() => {
     let raf = 0;
@@ -86,11 +119,11 @@ export default function Nav() {
   }, []);
 
   return (
-    <header className={styles.nav}>
+    <header className={styles.nav} ref={menu.header}>
       <div className={styles.navIn}>
-        <a className={styles.mark} href="#top">
+        <a className={styles.mark} href="#top" onClick={close}>
           <i>SR</i>
-          {person.name}
+          <span className={styles.markName}>{person.name}</span>
         </a>
         <nav className={styles.links} aria-label="Sections">
           {navItems.map((n) => (
@@ -106,7 +139,10 @@ export default function Nav() {
         <button
           type="button"
           className={styles.search}
-          onClick={openPalette}
+          onClick={() => {
+            close();
+            openPalette();
+          }}
           aria-label="Open command palette"
           aria-keyshortcuts="Control+K Meta+K"
         >
@@ -124,6 +160,51 @@ export default function Nav() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Résumé of ${person.name} (opens in new tab)`}
+        >
+          Résumé
+        </a>
+        <button
+          ref={menu.button}
+          type="button"
+          className={styles.menuBtn}
+          aria-expanded={menu.open}
+          aria-controls="nav-menu"
+          aria-label={menu.open ? 'Close menu' : 'Open menu'}
+          onClick={() => menu.setOpen(!menu.open)}
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+            {menu.open ? (
+              <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" strokeWidth="1.8" />
+            ) : (
+              <path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" strokeWidth="1.8" />
+            )}
+          </svg>
+        </button>
+      </div>
+      <div id="nav-menu" className={styles.menu} hidden={!menu.open}>
+        <nav aria-label="Sections">
+          <ol>
+            {navItems.map((n, i) => (
+              <li key={n.href}>
+                <a
+                  href={n.href}
+                  onClick={close}
+                  aria-current={current === n.href.slice(1) ? 'location' : undefined}
+                >
+                  <span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                  {n.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+        <a
+          className="btn btn-solid"
+          href={RESUME_VIEW_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Résumé of ${person.name} (opens in new tab)`}
+          onClick={close}
         >
           Résumé
         </a>
