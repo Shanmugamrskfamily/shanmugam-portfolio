@@ -24,6 +24,12 @@ export const site = {
     'Frontend-first full-stack developer in Chennai with 2.5+ years in production. Built the Telangana government DEET job portal, Workruit SaaS and a solo Next.js and Express platform, with deployment and SEO handled end to end. Open to full-time roles, immediate joiner.',
 };
 
+/** Résumé on Google Drive. Use the view URL for every résumé link; the download URL only for a button labelled "Download". */
+export const RESUME_VIEW_URL =
+  'https://drive.google.com/file/d/1DP1-J1KPJLbjl21Lg-jC_e7uJ2mfNdp5/view';
+export const RESUME_DOWNLOAD_URL =
+  'https://drive.google.com/uc?export=download&id=1DP1-J1KPJLbjl21Lg-jC_e7uJ2mfNdp5';
+
 export const person = {
   name: 'Shanmugam R',
   role: 'Full-Stack Developer',
@@ -32,7 +38,6 @@ export const person = {
   location: 'Chennai, Tamil Nadu, India',
   email: 'shanmugamrskfamily@gmail.com',
   phone: '+91 78453 71892',
-  resumeUrl: 'https://drive.google.com/file/d/1OyTjiWBmbqbmVzNReCG0n_-d61jAyivb/view?usp=sharing',
   linkedin: 'https://www.linkedin.com/in/shanmugamrskfamily/',
   github: 'https://github.com/Shanmugamrskfamily',
   hackerrank: 'https://www.hackerrank.com/profile/shanmugamr',

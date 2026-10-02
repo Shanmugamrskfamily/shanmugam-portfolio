@@ -1,6 +1,6 @@
 # Shanmugam R — Portfolio
 
-> **Live:** [shanmugam-portfolio.vercel.app](https://shanmugam-portfolio.vercel.app) · **Résumé:** [View on Google Drive](https://drive.google.com/file/d/1OyTjiWBmbqbmVzNReCG0n_-d61jAyivb/view?usp=sharing)
+> **Live:** [shanmugam-portfolio.vercel.app](https://shanmugam-portfolio.vercel.app) · **Résumé:** [View on Google Drive](https://drive.google.com/file/d/1DP1-J1KPJLbjl21Lg-jC_e7uJ2mfNdp5/view)
 
 Portfolio of **Shanmugam R**, a frontend-first full-stack developer in Chennai with 2.5+ years of production experience in React.js, Next.js and Node.js. Open to full-time roles in Chennai, Bangalore or Hyderabad, on-site, hybrid or remote. Immediate joiner.
 
@@ -106,5 +106,5 @@ Work happens on `dev`, where Vercel builds a preview for every push. Merging to 
 [LinkedIn](https://www.linkedin.com/in/shanmugamrskfamily/) ·
 [GitHub](https://github.com/Shanmugamrskfamily) ·
 [HackerRank](https://www.hackerrank.com/profile/shanmugamr) ·
-[Résumé](https://drive.google.com/file/d/1OyTjiWBmbqbmVzNReCG0n_-d61jAyivb/view?usp=sharing) ·
+[Résumé](https://drive.google.com/file/d/1DP1-J1KPJLbjl21Lg-jC_e7uJ2mfNdp5/view) ·
 [Email](mailto:shanmugamrskfamily@gmail.com)

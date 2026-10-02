@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { caseStudies, navItems, person } from '@/data/portfolio';
+import { caseStudies, navItems, person, RESUME_VIEW_URL } from '@/data/portfolio';
 import type { Capability } from '@/types';
 import { usePageUI } from './PageShell';
 import styles from './palette.module.css';
@@ -85,7 +85,7 @@ export default function CommandPalette({
         group: 'Actions',
         label: 'Open résumé (PDF)',
         keywords: 'cv download',
-        run: () => open(person.resumeUrl),
+        run: () => open(RESUME_VIEW_URL),
       },
       {
         id: 'email',

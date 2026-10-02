@@ -1,5 +1,5 @@
 import CopyButton from '@/components/ui/CopyButton';
-import { openToWork, person } from '@/data/portfolio';
+import { openToWork, person, RESUME_VIEW_URL } from '@/data/portfolio';
 import styles from './sections.module.css';
 
 export default function Contact() {
@@ -21,9 +21,10 @@ export default function Contact() {
           <div className={styles.btns}>
             <a
               className="btn btn-solid"
-              href={person.resumeUrl}
+              href={RESUME_VIEW_URL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Open résumé (PDF) of ${person.name} (opens in new tab)`}
             >
               Open résumé (PDF)
             </a>

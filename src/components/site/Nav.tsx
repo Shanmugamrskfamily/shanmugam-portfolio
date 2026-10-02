@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { navItems, person } from '@/data/portfolio';
+import { navItems, person, RESUME_VIEW_URL } from '@/data/portfolio';
 import { usePageUI } from './PageShell';
 import styles from '../sections/sections.module.css';
 
@@ -120,9 +120,10 @@ export default function Nav() {
         <ThemeToggle />
         <a
           className={`btn btn-solid btn-sm ${styles.navBtn}`}
-          href={person.resumeUrl}
+          href={RESUME_VIEW_URL}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Résumé of ${person.name} (opens in new tab)`}
         >
           Résumé
         </a>
